@@ -14,12 +14,6 @@ const navLinks = [
 export default function Navigation() {
   const hasShadow = useScrollShadow(520);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const { i18n } = useTranslation();
-
-  const toggleLanguage = () => {
-    const newLang = i18n.language.startsWith('en') ? 'es' : 'en';
-    i18n.changeLanguage(newLang);
-  };
 
   const handleNavClick = () => {
     setMobileMenuOpen(false);
@@ -55,14 +49,6 @@ export default function Navigation() {
                 </a>
               ))}
             </nav>
-            <div className="flex items-center gap-4">
-              <button 
-                onClick={toggleLanguage}
-                className="text-[13px] font-semibold tracking-nav uppercase text-text-primary hover:opacity-70 transition-opacity duration-200"
-              >
-                {i18n.language.startsWith('en') ? 'ES' : 'EN'}
-              </button>
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
