@@ -38,14 +38,6 @@ export default function Products() {
               )}
               <h3 style={{ fontSize: "1.05rem", margin: 0, fontWeight: 600, color: "var(--ink)" }}>{product.title}</h3>
               <div style={{ color: "var(--gold)", fontWeight: 600, fontSize: "1.1rem" }}>${product.price.toFixed(2)}</div>
-              <button className="btn" style={{ 
-                width: "100%", 
-                justifyContent: "center", 
-                marginTop: "auto",
-                backgroundColor: "transparent",
-                border: "1px solid var(--line)",
-                color: "var(--ink)"
-              }}>Add to Cart</button>
             </div>
           ))}
         </div>
