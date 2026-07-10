@@ -6,8 +6,11 @@ import '../index.css';
 import GrouponPopup from '../components/GrouponPopup';
 import { FadeIn } from '../components/FadeIn';
 import ReviewCarousel from '../components/ReviewCarousel';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
+  const { t } = useTranslation();
+
   useEffect(() => {
     // JS logic to initialize components can go here
   }, []);
@@ -37,22 +40,22 @@ export default function Home() {
       />
       <GrouponPopup />
 
-<section 
+      <section 
         className="hero-banner" 
         style={{ 
           backgroundImage: 'linear-gradient(180deg, rgba(18,16,13,0.3), rgba(18,16,13,0.7)), url("/assets/Girl_Slider.webp")' 
         }}
       ><div className="container">
     <FadeIn>
-      <h1>Give yourself a moment of <em>wellness</em></h1>
+      <h1 dangerouslySetInnerHTML={{ __html: t('heroTitle').replace('wellness', '<em>wellness</em>').replace('bienestar', '<em>bienestar</em>') }} />
     </FadeIn>
     <FadeIn delay={0.2}>
-      <p className="lede">A quiet, personal-attention spa built around one idea: rest is not a luxury, it is maintenance. Facials, massage therapy, and waxing, delivered with care and unhurried attention.</p>
+      <p className="lede">{t('heroSubtitle')}</p>
     </FadeIn>
     <FadeIn delay={0.4}>
       <div className="btn-row">
-        <a href="/booking" className="btn btn-primary">Book Your Appointment</a>
-        <a href="/services" className="btn btn-outline">View Services</a>
+        <a href="/booking" className="btn btn-primary">{t('bookNow')}</a>
+        <a href="/services" className="btn btn-outline">{t('exploreMenu')}</a>
       </div>
     </FadeIn>
   </div>
@@ -62,10 +65,10 @@ export default function Home() {
   <div className="container center" style={{ display: "block", maxWidth: "760px" }}>
     <FadeIn>
       <span className="eyebrow center-line">Our Approach</span>
-      <h2>Treatments built around <em>you</em>, not a menu</h2>
+      <h2 dangerouslySetInnerHTML={{ __html: t('approachTitle').replace('you', '<em>you</em>').replace('ti', '<em>ti</em>') }} />
     </FadeIn>
     <FadeIn delay={0.2}>
-      <p className="lede" style={{ margin: "0 auto" }}>Every session starts with a conversation about your skin, your stress, and what you need from the hour. Grisel Beauty Spa has spent years earning a reputation across Maryland, DC, and Virginia for quality products, a clean and calm space, and treatments that are never rushed.</p>
+      <p className="lede" style={{ margin: "0 auto" }}>{t('approachBody')}</p>
     </FadeIn>
   </div>
 </section>
@@ -120,12 +123,12 @@ export default function Home() {
 <section className="section--tight section--olive">
   <div className="container center">
     <FadeIn>
-      <h2>Ready to book your session?</h2>
-      <p className="lede">Saturday appointments book up quickly. Reserve your spot online or call us directly.</p>
+      <h2>{t('readyTitle')}</h2>
+      <p className="lede">{t('readyBody')}</p>
     </FadeIn>
     <FadeIn delay={0.2}>
       <div className="btn-row">
-        <a href="/booking" className="btn btn-primary">Book Appointment</a>
+        <a href="/booking" className="btn btn-primary">{t('bookNow')}</a>
         <a href="tel:2407010731" className="btn btn-outline">Call (240) 701-0731</a>
       </div>
     </FadeIn>

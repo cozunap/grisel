@@ -1,0 +1,47 @@
+backend:
+  name: github
+  repo: cozunap/grisel
+  branch: main # Branch to update (optional; defaults to master)
+
+media_folder: "public/assets/uploads" # Media files will be stored in the repo under public/assets/uploads
+public_folder: "/assets/uploads" # The src attribute for uploaded media will begin with /assets/uploads
+
+# i18n configuration for bilingual support
+i18n:
+  structure: multiple_files
+  locales: [en, es]
+  default_locale: en
+
+collections:
+  - name: "pages"
+    label: "Website Pages"
+    folder: "src/content/pages"
+    create: false
+    format: "json"
+    extension: "json"
+    i18n: true
+    fields:
+      - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "SEO Description", name: "description", widget: "string", i18n: true}
+      - {label: "Hero Title", name: "heroTitle", widget: "string", i18n: true}
+      - {label: "Hero Subtitle", name: "heroSubtitle", widget: "text", i18n: true}
+      - {label: "Content Sections", name: "sections", widget: "list", i18n: true, fields: [
+          {label: "Section Title", name: "title", widget: "string", i18n: true},
+          {label: "Section Body", name: "body", widget: "markdown", i18n: true}
+        ]}
+
+  - name: "services"
+    label: "Services Menu"
+    folder: "src/content/services"
+    create: true
+    format: "json"
+    extension: "json"
+    i18n: true
+    fields:
+      - {label: "Title", name: "title", widget: "string", i18n: true}
+      - {label: "Slug", name: "slug", widget: "string", i18n: true}
+      - {label: "Description", name: "description", widget: "text", i18n: true}
+      - {label: "Price", name: "price", widget: "string", i18n: true}
+      - {label: "Duration", name: "duration", widget: "string", i18n: true}
+      - {label: "Image", name: "image", widget: "image", i18n: true}
+      - {label: "Category", name: "category", widget: "select", options: ["Facials", "Massage", "Waxing"], i18n: true}
