@@ -21,37 +21,45 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f1f1f1] flex flex-col items-center justify-center p-6 font-sans">
-      <div className="mb-6 text-center">
-        <h1 className="text-3xl font-serif text-[#1d2327]">Grisel Spa</h1>
-      </div>
-      <div className="max-w-[320px] w-full bg-white p-6 shadow-sm border border-[#c3c4c7] rounded-sm">
-        {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
-        <form onSubmit={handleLogin} className="flex flex-col gap-4">
-          <div>
-            <label className="block text-sm text-[#1d2327] mb-1">Email Address</label>
-            <input 
-              type="email" 
-              className="w-full px-3 py-2 border border-[#8c8f94] rounded-[3px] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1] shadow-inner text-[#2c3338] bg-white appearance-none"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required 
-            />
-          </div>
-          <div className="mt-2">
-            <label className="block text-sm text-[#1d2327] mb-1">Password</label>
-            <input 
-              type="password" 
-              className="w-full px-3 py-2 border border-[#8c8f94] rounded-[3px] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1] shadow-inner text-[#2c3338] bg-white appearance-none"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required 
-            />
-          </div>
-          <button type="submit" className="w-full py-2 mt-4 bg-[#2271b1] text-white font-medium rounded-[3px] hover:bg-[#135e96] transition-colors shadow-sm text-[13px]">
-            Log In
-          </button>
-        </form>
+    <div className="min-h-screen bg-[#f4f6f8] flex flex-col items-center justify-center p-6 font-sans">
+      <div className="w-full max-w-[400px]">
+        {/* Decap Style Logo/Header */}
+        <div className="text-center mb-8">
+          <h1 className="text-2xl font-bold text-[#1a202c]">Content Manager</h1>
+        </div>
+
+        {/* Decap Style Card */}
+        <div className="bg-white rounded-lg shadow-sm border border-[#e2e8f0] p-8">
+          {error && <p className="text-red-500 text-sm mb-4 text-center bg-red-50 p-2 rounded">{error}</p>}
+          <form onSubmit={handleLogin} className="flex flex-col gap-5">
+            <div>
+              <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Email</label>
+              <input 
+                type="email" 
+                className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] focus:ring-1 focus:ring-[#05a3a4] transition-colors"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+              />
+            </div>
+            <div>
+              <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Password</label>
+              <input 
+                type="password" 
+                className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] focus:ring-1 focus:ring-[#05a3a4] transition-colors"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button 
+              type="submit" 
+              className="mt-2 w-full bg-[#05a3a4] text-white py-2.5 rounded font-medium text-[15px] hover:bg-[#048889] transition-colors"
+            >
+              Login
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   );
