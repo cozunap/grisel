@@ -4,7 +4,7 @@
   "heroSubtitle": "GRISEL BEAUTY SPA is the ideal solution for those looking to relax and find balance of health in all physical, psychological, mental, and spiritual levels.",
   "philosophy": "Our Philosophy",
   "philosophyText": "We provide noninvasive novel treatments with the latest trends in spa and alternative therapies to restore and maintain health.",
-  "offeringsSubtitle": "Find Your True Self",
+  "offeringsEyebrow": "Find Your True Self",
   "offeringsTitle": "Our Core Offerings",
   "offer1Title": "Aromatherapy",
   "offer1Desc": "A therapeutic discipline that exploits the properties of essential oils extracted from aromatic plants to restore balance and harmony of body and mind.",
@@ -14,6 +14,6 @@
   "offer3Desc": "We help you identify what your body and mind need. Find options to stimulate harmony with tailored relaxation programs. We have therapeutic and cosmetic packages for every occasion and need.",
   "ctaTitle": "Come experience it for yourself",
   "ctaSubtitle": "Do not hesitate to contact us to find options to stimulate the harmony of your body and mind.",
-  "bookNow": "Book Appointment",
-  "viewServices": "View Services"
+  "btnBook": "Book Appointment",
+  "btnServices": "View Services"
 }

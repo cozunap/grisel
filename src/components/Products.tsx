@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import localProducts from '../../shop_data.json';
+import { useTranslation } from 'react-i18next';
 
 interface Product {
   id: string;
@@ -35,11 +36,13 @@ export default function Products() {
     fetchData();
   }, []);
 
+  const { t } = useTranslation('catalogue');
+
   return (
     <section className="section">
       <div className="container center" style={{ marginBottom: "24px" }}>
-        <span className="eyebrow center-line">Our Products</span>
-        <h2>Product Catalogue</h2>
+        <span className="eyebrow center-line">{t('eyebrow')}</span>
+        <h2>{t('title')}</h2>
       </div>
       <div className="container">
         <div className="tile-grid tile-grid--3">

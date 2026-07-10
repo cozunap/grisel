@@ -1,9 +1,11 @@
+import { useTranslation } from 'react-i18next';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import Products from '../components/Products';
 import { FadeIn } from '../components/FadeIn';
 
 export default function Catalogue() {
+  const { t } = useTranslation('catalogue');
   return (
     <Layout>
       <SEO 
@@ -16,8 +18,8 @@ export default function Catalogue() {
       <section className="hero-banner" style={{ minHeight: "300px", padding: "80px 0 40px", backgroundImage: "linear-gradient(180deg, rgba(33,29,25,0.38), rgba(33,29,25,0.58)), url('https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=1800&q=80')" }}>
         <div className="container center">
           <FadeIn>
-            <h1>Catalogue</h1>
-            <p className="lede">Discover our curated collection of professional skincare products.</p>
+            <h1>{t('heroTitle')}</h1>
+            <p className="lede">{t('heroSubtitle')}</p>
           </FadeIn>
         </div>
       </section>
