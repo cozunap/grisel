@@ -3,24 +3,33 @@ import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
 import localProducts from '../../shop_data.json';
 
+interface Product {
+  id: string;
+  title: string;
+  price: number;
+  image: string;
+  priority: number;
+}
+
 export default function Products() {
-  const [productsData, setProductsData] = useState<any[]>([]);
+  // Start with local JSON immediately — no loading flicker, works on all deployments
+  const [productsData, setProductsData] = useState<Product[]>(
+    localProducts.map((p, i) => ({ id: p.title, title: p.title, price: p.price, image: p.image || '', priority: i + 1 }))
+  );
 
   useEffect(() => {
+    // Try to upgrade to Firestore data if available (for CMS edits)
     const fetchData = async () => {
       try {
         const snap = await getDocs(collection(db, 'products'));
         if (!snap.empty) {
-          let data = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-          data.sort((a: any, b: any) => (a.priority || 0) - (b.priority || 0));
+          const data: Product[] = snap.docs.map(doc => ({ id: doc.id, ...doc.data() } as Product));
+          data.sort((a, b) => (a.priority || 0) - (b.priority || 0));
           setProductsData(data);
-        } else {
-          // Firestore empty – fall back to local JSON
-          setProductsData(localProducts.map((p, i) => ({ ...p, id: p.title, priority: i + 1 })));
         }
+        // If Firestore empty, keep showing the local JSON (already set as default state)
       } catch {
-        // Network error – fall back to local JSON
-        setProductsData(localProducts.map((p, i) => ({ ...p, id: p.title, priority: i + 1 })));
+        // Network / permission error — keep showing local JSON
       }
     };
     fetchData();
@@ -34,18 +43,22 @@ export default function Products() {
       </div>
       <div className="container">
         <div className="tile-grid tile-grid--3">
-          {productsData.map((product, index) => (
-            <div className="product-card" key={index} style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", paddingBottom: "24px", background: "#fff", border: "1px solid var(--line)", borderRadius: "8px", padding: "32px 24px" }}>
+          {productsData.map((product) => (
+            <div
+              className="product-card"
+              key={product.id}
+              style={{ display: "flex", flexDirection: "column", gap: "12px", textAlign: "center", background: "#fff", border: "1px solid var(--line)", borderRadius: "8px", padding: "32px 24px" }}
+            >
               {product.image && (
-                <div style={{ 
-                  backgroundImage: `url(${product.image})`, 
-                  backgroundSize: "contain", 
-                  backgroundRepeat: "no-repeat", 
-                  backgroundPosition: "center", 
-                  aspectRatio: "1/1", 
+                <div style={{
+                  backgroundImage: `url(${product.image})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                  backgroundPosition: "center",
+                  aspectRatio: "1/1",
                   width: "100%",
                   marginBottom: "8px"
-                }}></div>
+                }} />
               )}
               <h3 style={{ fontSize: "1.05rem", margin: 0, fontWeight: 600, color: "var(--ink)" }}>{product.title}</h3>
               <div style={{ color: "var(--gold)", fontWeight: 600, fontSize: "1.1rem" }}>${product.price.toFixed(2)}</div>
