@@ -1,16 +1,27 @@
 import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import localProducts from '../../shop_data.json';
 
 export default function Products() {
   const [productsData, setProductsData] = useState<any[]>([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const snap = await getDocs(collection(db, 'products'));
-      let data = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      data.sort((a: any, b: any) => (a.priority || 0) - (b.priority || 0));
-      setProductsData(data);
+      try {
+        const snap = await getDocs(collection(db, 'products'));
+        if (!snap.empty) {
+          let data = snap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          data.sort((a: any, b: any) => (a.priority || 0) - (b.priority || 0));
+          setProductsData(data);
+        } else {
+          // Firestore empty – fall back to local JSON
+          setProductsData(localProducts.map((p, i) => ({ ...p, id: p.title, priority: i + 1 })));
+        }
+      } catch {
+        // Network error – fall back to local JSON
+        setProductsData(localProducts.map((p, i) => ({ ...p, id: p.title, priority: i + 1 })));
+      }
     };
     fetchData();
   }, []);
