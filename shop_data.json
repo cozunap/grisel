@@ -2,81 +2,81 @@
   {
     "title": "Active Hyaluron Gel",
     "price": 40,
-    "image": "https://images.unsplash.com/photo-1556228578-0d85b1a4d571?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/Active-Hyaluron-Gel.webp"
   },
   {
     "title": "AMINTAmed Balance",
     "price": 44,
-    "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/AMINTAmed-Balance.webp"
   },
   {
     "title": "AMINTAmed Balm",
     "price": 44,
-    "image": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/AMINTAmed-Balm.webp"
   },
   {
     "title": "AMINTAmed Mask",
     "price": 27,
-    "image": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/AMINTAmed-Mask.webp"
   },
   {
     "title": "AMINTAmed Tonic",
     "price": 33,
-    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/AMINTAmed-Tonic.webp"
   },
   {
     "title": "AMINTAmed Wash",
     "price": 40,
-    "image": "https://images.unsplash.com/photo-1556228453-efd6c1ff04f6?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/AMINTAmed-Wash.webp"
   },
   {
     "title": "BAOBAB 24-hour Cream",
     "price": 94,
-    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/BAOBAB-24-hour-Cream.webp"
   },
   {
     "title": "BAOBAB 24-hour Cream light",
     "price": 94,
-    "image": "https://images.unsplash.com/photo-1631390093024-1c4073a31ebb?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/BAOBAB-24-hour-Cream-light.webp"
   },
   {
     "title": "BB Cream",
     "price": 25,
-    "image": "https://images.unsplash.com/photo-1586495777744-4e6232bf2177?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/BB-Cream.webp"
   },
   {
     "title": "Beauty Serum",
     "price": 118,
-    "image": "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/Beauty-Serum.webp"
   },
   {
     "title": "Cerasome Regenerative",
     "price": 78,
-    "image": "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/Cerasome-Regenerative.webp"
   },
   {
     "title": "Cleansing Foam",
     "price": 33,
-    "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/Cleansing-Foam.webp"
   },
   {
     "title": "Cleansing Milk",
     "price": 33,
-    "image": "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/Cleansing-Milk.webp"
   },
   {
     "title": "Cleansing Oil",
     "price": 33,
-    "image": "https://images.unsplash.com/photo-1611080626919-7cf5a9dbab12?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/Cleansing-Oil.webp"
   },
   {
     "title": "Cleansing Peeling",
     "price": 33,
-    "image": "https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/Cleansing-Peeling.webp"
   },
   {
     "title": "Cleansing Tonic",
     "price": 33,
-    "image": "https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&fit=crop&w=400&q=80"
+    "image": "/products/Cleansing-Tonic.webp"
   }
 ]
