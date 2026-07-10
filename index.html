@@ -6,25 +6,13 @@
     <title>Grisel Beauty Spa | Facials, Massage Therapy & Waxing in Silver Spring, MD</title>
     <link rel="icon" type="image/svg+xml" href="/assets/grisel-logo.svg" />
 
-    <!-- Google Analytics – consent-first mode -->
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8HW3K0Y8P8"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      // Default: deny all until user consents
-      gtag('consent', 'default', {
-        analytics_storage: 'denied',
-        ad_storage: 'denied',
-        wait_for_update: 500
-      });
       gtag('js', new Date());
-      gtag('config', 'G-8HW3K0Y8P8', { send_page_view: false });
-
-      // If user already accepted in a previous visit, enable immediately
-      if (localStorage.getItem('grisel_cookie_consent') === 'accepted') {
-        gtag('consent', 'update', { analytics_storage: 'granted' });
-        gtag('event', 'page_view');
-      }
+      gtag('config', 'G-8HW3K0Y8P8');
     </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
