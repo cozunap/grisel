@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import type { ReactNode } from 'react';
 import { useLocation, Link } from 'react-router';
+import { useTranslation } from 'react-i18next';
 import FloatingActions from './FloatingActions';
 import CookieConsent from './CookieConsent';
 import StickyBooking from './StickyBooking';
@@ -12,6 +13,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
+  const { i18n } = useTranslation();
 
   // Close nav when route changes
   useEffect(() => {
@@ -61,6 +63,13 @@ export default function Layout({ children }: LayoutProps) {
               <li><Link to="/gift-cards" className={location.pathname === '/gift-cards' ? 'active' : ''}>Gift Cards</Link></li>
               <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
             </ul>
+            <div className="language-switcher" style={{ display: 'flex', gap: '10px', alignItems: 'center', marginLeft: '1rem' }}>
+              <button onClick={() => i18n.changeLanguage('en')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontWeight: i18n.language.startsWith('en') ? 'bold' : 'normal', fontSize: '0.9rem' }}>EN</button>
+              <span style={{ color: '#ccc' }}>|</span>
+              <button onClick={() => i18n.changeLanguage('es')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontWeight: i18n.language.startsWith('es') ? 'bold' : 'normal', fontSize: '0.9rem' }}>ES</button>
+              <span style={{ color: '#ccc' }}>|</span>
+              <button onClick={() => i18n.changeLanguage('fr')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontWeight: i18n.language.startsWith('fr') ? 'bold' : 'normal', fontSize: '0.8rem', opacity: 0.7 }}>FR</button>
+            </div>
           </nav>
           <button 
             className="nav-toggle" 

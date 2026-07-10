@@ -3,11 +3,14 @@ import SEO from '../components/SEO';
 import { FadeIn } from '../components/FadeIn';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase';
+import { servicesData as localServices } from '../data/services';
 import '../index.css';
 
 export default function Services() {
+  const { t } = useTranslation('services');
   const [servicesData, setServicesData] = useState<any[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -15,10 +18,16 @@ export default function Services() {
     const fetchServices = async () => {
       try {
         const querySnapshot = await getDocs(collection(db, 'services'));
-        const services = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-        setServicesData(services);
+        if (!querySnapshot.empty) {
+          const services = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+          setServicesData(services);
+        } else {
+          // Fallback to local data if Firestore is empty
+          setServicesData(localServices);
+        }
       } catch (err) {
         console.error('Error fetching services:', err);
+        setServicesData(localServices); // Fallback on error
       } finally {
         setLoading(false);
       }
@@ -34,7 +43,7 @@ export default function Services() {
     return (
       <Layout>
         <div className="min-h-[60vh] flex items-center justify-center">
-          <p className="text-stone/50 uppercase tracking-widest">Loading services...</p>
+          <p className="text-stone/50 uppercase tracking-widest">{t('loading')}</p>
         </div>
       </Layout>
     );
@@ -52,11 +61,11 @@ export default function Services() {
       <section className="page-header">
         <div className="container">
           <FadeIn>
-            <span className="eyebrow center-line">Treatment Menu</span>
-            <h1>Services</h1>
+            <span className="eyebrow center-line">{t('eyebrow')}</span>
+            <h1>{t('title')}</h1>
           </FadeIn>
           <FadeIn delay={0.2}>
-            <p className="lede">Every treatment is customized in the room. Durations below are a guide, and any facial or massage can be adjusted for sensitive skin, pregnancy, or a specific concern. Ask when you book.</p>
+            <p className="lede">{t('lede')}</p>
           </FadeIn>
         </div>
       </section>
@@ -66,7 +75,7 @@ export default function Services() {
 
           <FadeIn direction="up">
             <div className="menu-category" id="massage">
-              <h3>Massage Therapy</h3>
+              <h3>{t('massage')}</h3>
               {massageServices.map(service => (
                 <div className="menu-item" key={service.id}>
                   <div>
@@ -76,7 +85,7 @@ export default function Services() {
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
                   <Link to={`/services/${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    View details
+                    {t('viewDetails')}
                   </Link>
                 </div>
               ))}
@@ -85,7 +94,7 @@ export default function Services() {
 
           <FadeIn direction="up" delay={0.1}>
             <div className="menu-category" id="facials">
-              <h3>Facial Services</h3>
+              <h3>{t('facials')}</h3>
               {facialServices.map(service => (
                 <div className="menu-item" key={service.id}>
                   <div>
@@ -95,7 +104,7 @@ export default function Services() {
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
                   <Link to={`/services/${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    View details
+                    {t('viewDetails')}
                   </Link>
                 </div>
               ))}
@@ -104,7 +113,7 @@ export default function Services() {
 
           <FadeIn direction="up" delay={0.2}>
             <div className="menu-category" id="waxing">
-              <h3>Waxing Services</h3>
+              <h3>{t('waxing')}</h3>
               {waxingServices.map(service => (
                 <div className="menu-item" key={service.id}>
                   <div>
@@ -114,7 +123,7 @@ export default function Services() {
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
                   <Link to={`/services/${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    View details
+                    {t('viewDetails')}
                   </Link>
                 </div>
               ))}
@@ -127,13 +136,13 @@ export default function Services() {
       <section className="section--tight section--olive">
         <div className="container center">
           <FadeIn>
-            <h2>Not sure where to start?</h2>
-            <p className="lede">Call or send a message and we'll help you pick the right treatment for your skin, your schedule, and your budget.</p>
+            <h2>{t('notSure')}</h2>
+            <p className="lede">{t('notSureBody')}</p>
           </FadeIn>
           <FadeIn delay={0.2}>
             <div className="btn-row">
-              <a href="/booking" className="btn btn-primary">Book Appointment</a>
-              <a href="tel:2407010731" className="btn btn-outline">Call (240) 701-0731</a>
+              <a href="/booking" className="btn btn-primary">{t('bookNow')}</a>
+              <a href="tel:2407010731" className="btn btn-outline">{t('call')}</a>
             </div>
           </FadeIn>
         </div>
