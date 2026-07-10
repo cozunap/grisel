@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>About Us | Grisel Beauty Spa</title>
+<meta name="description" content="Meet Grisel Beauty Spa, a Silver Spring, MD spa dedicated to personal, unhurried care through facials, massage therapy, and waxing.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23a35c42'/%3E%3Ctext x='50' y='67' font-size='55' text-anchor='middle' fill='%23f7f1e7' font-family='Georgia,serif'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span>Grisel Beauty Spa</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="gift-cards.html">Gift Cards</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-backdrop" aria-hidden="true"></div>
+
+<section class="hero-banner hero-banner--page" style="background-image: linear-gradient(180deg, rgba(33,29,25,0.42), rgba(33,29,25,0.6)), url('https://images.unsplash.com/photo-1745327883290-1e9c6447b938?auto=format&fit=crop&w=1800&q=80');">
+  <div class="container">
+    <span class="eyebrow">Our Story</span>
+    <h1>Life in balance, <em>one appointment at a time</em></h1>
+    <p class="lede">Grisel Beauty Spa was built on a simple belief: good skin care and real relaxation should not feel rushed. Every client gets full attention, a clean and calm space, and a treatment plan built around what their skin and body actually need.</p>
+  </div>
+  <span class="photo-credit">Photo: Jakub Klucky / Unsplash (placeholder, swap for client photography)</span>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="plain-card">
+        <div class="icon-ring">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3.2"/></svg>
+        </div>
+        <h3>Personal Attention</h3>
+        <p>Small, appointment-based scheduling means no rushing between clients. Your session is yours.</p>
+      </div>
+      <div class="plain-card">
+        <div class="icon-ring">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2C9 6 6 9 6 13a6 6 0 0 0 12 0c0-4-3-7-6-11z"/></svg>
+        </div>
+        <h3>Quality Products</h3>
+        <p>Treatments use professional-grade products chosen for real results, not just relaxation.</p>
+      </div>
+      <div class="plain-card">
+        <div class="icon-ring">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12a8 8 0 1 1 16 0 8 8 0 0 1-16 0z"/><path d="M12 8v4l3 2"/></svg>
+        </div>
+        <h3>A Clean, Calm Space</h3>
+        <p>A private suite designed to help you switch off from the day before your treatment even starts.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section--olive section--tight">
+  <div class="container center container-narrow">
+    <span class="eyebrow center-line">A Note to Reader</span>
+    <h2>This page is a starting draft</h2>
+    <p class="lede" style="margin:0 auto;">The paragraphs above are placeholder copy written for launch. Swap in Grisel's real background, training, certifications, and years of experience whenever you're ready, and this section can grow to include a full founder bio and photo.</p>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="container center">
+    <h2>Come experience it for yourself</h2>
+    <p class="lede">Book a facial, massage, or body treatment and see what a slower hour feels like.</p>
+    <div class="btn-row">
+      <a href="booking.html" class="btn btn-primary">Book Appointment</a>
+      <a href="services.html" class="btn btn-outline">View Services</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span>Grisel Beauty Spa</span>
+        </div>
+        <p>A beauty spa dedicated to inspiring life in balance, serving Silver Spring and the greater MD, DC, and VA area.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="booking.html">Book an Appointment</a></li>
+          <li><a href="gift-cards.html">Gift Cards</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>1620 Elton Rd, Suite 205<br>Silver Spring, MD 20903</li>
+          <li><a href="tel:2407010731">(240) 701-0731</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Saturday: 10:00 am &ndash; 7:00 pm</li>
+          <li>Mon &ndash; Fri: By appointment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Grisel Beauty Spa. All rights reserved.</span>
+      <span>Site by <a href="https://ariaria.ai/case-studies/grisel-case-study.html" style="color:inherit;text-decoration:underline">Ariaria</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

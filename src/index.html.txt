@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Grisel Beauty Spa | Facials, Massage Therapy &amp; Waxing in Silver Spring, MD</title>
+<meta name="description" content="A calm, personal-attention spa in Silver Spring, MD offering facials, massage therapy, and waxing. Book your appointment with Grisel Beauty Spa today.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23a35c42'/%3E%3Ctext x='50' y='67' font-size='55' text-anchor='middle' fill='%23f7f1e7' font-family='Georgia,serif'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BeautySalon",
+  "name": "Grisel Beauty Spa",
+  "url": "https://griselbeautyspa.com/",
+  "telephone": "+1-240-701-0731",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "1620 Elton Rd, Suite 205",
+    "addressLocality": "Silver Spring",
+    "addressRegion": "MD",
+    "postalCode": "20903",
+    "addressCountry": "US"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "10:00",
+      "closes": "19:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.yelp.com/biz/grisel-beauty-spa-silver-spring"
+  ]
+}
+</script>
+</head>
+<body>
+
+<div class="banner-strip">
+  This and every Saturday, 10% off all skin care.
+  <a href="booking.html">Book this week &rarr;</a>
+</div>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span>Grisel Beauty Spa</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="gift-cards.html">Gift Cards</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-backdrop" aria-hidden="true"></div>
+
+<section class="hero-banner" style="background-image: linear-gradient(180deg, rgba(33,29,25,0.38), rgba(33,29,25,0.58)), url('https://images.unsplash.com/photo-1696841212541-449ca29397cc?auto=format&fit=crop&w=1800&q=80');">
+  <div class="container">
+    <h1>Give yourself a moment of <em>wellness</em></h1>
+    <p class="lede">A quiet, personal-attention spa built around one idea: rest is not a luxury, it is maintenance. Facials, massage therapy, and waxing, delivered with care and unhurried attention.</p>
+    <div class="btn-row">
+      <a href="booking.html" class="btn btn-primary">Book Your Appointment</a>
+      <a href="services.html" class="btn btn-outline">View Services</a>
+    </div>
+  </div>
+  <span class="photo-credit">Photo: Taylor Heery / Unsplash (placeholder, swap for client photography)</span>
+</section>
+
+<section class="intro-band">
+  <div class="container center" style="display:block; max-width:760px;">
+    <span class="eyebrow center-line">Our Approach</span>
+    <h2>Treatments built around <em>you</em>, not a menu</h2>
+    <p class="lede" style="margin:0 auto;">Every session starts with a conversation about your skin, your stress, and what you need from the hour. Grisel Beauty Spa has spent years earning a reputation across Maryland, DC, and Virginia for quality products, a clean and calm space, and treatments that are never rushed.</p>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="tile-grid tile-grid--3">
+      <a class="tile" href="services.html#massage">
+        <span class="tile-bg" style="background-image:url('https://images.unsplash.com/photo-1745327883508-b6cd32e5dde5?auto=format&fit=crop&w=900&q=80');"></span>
+        <span class="tile-label">
+          <h3>Massage Therapy</h3>
+          <span>Hot stone, aromatherapy</span>
+        </span>
+      </a>
+      <a class="tile" href="services.html#facials">
+        <span class="tile-bg" style="background-image:url('https://images.unsplash.com/photo-1731514771613-991a02407132?auto=format&fit=crop&w=900&q=80');"></span>
+        <span class="tile-label">
+          <h3>Facial Services</h3>
+          <span>Detox, hydrate, renew</span>
+        </span>
+      </a>
+      <a class="tile" href="services.html#waxing">
+        <span class="tile-bg" style="background-image:url('https://images.unsplash.com/photo-1700760934166-4c766d708139?auto=format&fit=crop&w=900&q=80');"></span>
+        <span class="tile-label">
+          <h3>Waxing Services</h3>
+          <span>Quick, clean, comfortable</span>
+        </span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <span class="eyebrow center-line" style="color:var(--gold);">The Gift of Rest</span>
+    <h2>Give someone a day of <em>calm</em></h2>
+    <p class="lede">A Grisel Beauty Spa gift card is an open invitation to slow down. Perfect for birthdays, holidays, or simply saying thank you.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a href="gift-cards.html" class="btn btn-outline">Learn About Gift Cards</a>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container center" style="margin-bottom:24px;">
+    <span class="eyebrow center-line">In Their Words</span>
+    <h2>What our guests are saying</h2>
+  </div>
+  <div class="container">
+    <div class="quote-grid">
+      <div class="quote">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"I really enjoyed my Swedish massage. This was a birthday gift, though it felt like a usual scheduled session, relaxing and professional from start to finish."</p>
+        <div class="quote-name">Shon</div>
+      </div>
+      <div class="quote">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"The prices are unbeatable, the location is convenient with plenty of free parking, and the service was excellent. Grisel was very professional and attentive."</p>
+        <div class="quote-name">Lisa Greene</div>
+      </div>
+      <div class="quote">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Went as a first-time client and loved it. Easy to get to, plenty of parking, and so clean and professional. I got a Brazilian wax and there's not one hair left."</p>
+        <div class="quote-name">LeNiqua Ballou</div>
+      </div>
+    </div>
+    <div class="center" style="margin-top:36px;">
+      <a href="https://www.yelp.com/biz/grisel-beauty-spa-silver-spring" target="_blank" rel="noopener" class="btn btn-outline">Read More Reviews on Yelp</a>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight section--olive">
+  <div class="container center">
+    <h2>Ready to book your session?</h2>
+    <p class="lede">Saturday appointments book up quickly. Reserve your spot online or call us directly.</p>
+    <div class="btn-row">
+      <a href="booking.html" class="btn btn-primary">Book Appointment</a>
+      <a href="tel:2407010731" class="btn btn-outline">Call (240) 701-0731</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span>Grisel Beauty Spa</span>
+        </div>
+        <p>A beauty spa dedicated to inspiring life in balance, serving Silver Spring and the greater MD, DC, and VA area.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="booking.html">Book an Appointment</a></li>
+          <li><a href="gift-cards.html">Gift Cards</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>1620 Elton Rd, Suite 205<br>Silver Spring, MD 20903</li>
+          <li><a href="tel:2407010731">(240) 701-0731</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Saturday: 10:00 am &ndash; 7:00 pm</li>
+          <li>Mon &ndash; Fri: By appointment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Grisel Beauty Spa. All rights reserved.</span>
+      <span>Site by <a href="https://ariaria.ai/case-studies/grisel-case-study.html" style="color:inherit;text-decoration:underline">Ariaria</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

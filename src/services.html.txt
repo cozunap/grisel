@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Services &amp; Treatment Menu | Grisel Beauty Spa</title>
+<meta name="description" content="Explore the full treatment menu at Grisel Beauty Spa: facials, massage therapy, and waxing services in Silver Spring, MD.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23a35c42'/%3E%3Ctext x='50' y='67' font-size='55' text-anchor='middle' fill='%23f7f1e7' font-family='Georgia,serif'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span>Grisel Beauty Spa</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="gift-cards.html">Gift Cards</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-backdrop" aria-hidden="true"></div>
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow center-line">Treatment Menu</span>
+    <h1>Services</h1>
+    <p class="lede">Every treatment is customized in the room. Durations below are a guide, and any facial or massage can be adjusted for sensitive skin, pregnancy, or a specific concern. Ask when you book.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px;">
+  <div class="container container-narrow">
+
+    <div class="menu-category" id="massage">
+      <h3>Massage Therapy</h3>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Aromatherapy</div>
+          <span class="menu-item-duration">Massage technique combined with essential oils to relieve physical tension and emotional stress.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Thai Herbal Balls Massage</div>
+          <span class="menu-item-duration">Deep-pressure Thai massage followed by a warm herbal poultice to soothe muscle tension and aches.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Hot Stone Massage</div>
+          <span class="menu-item-duration">Heated stones relax muscle for deeper work, easing pain and improving circulation.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+    </div>
+
+    <div class="menu-category" id="facials">
+      <h3>Facial Services</h3>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Detox Mud Facial</div>
+          <span class="menu-item-duration">An intensive purifying treatment that reduces inflammation and blemishes and detoxifies the skin.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Hydrating Paraffin Facial</div>
+          <span class="menu-item-duration">A warm paraffin masque that draws out toxins and infuses skin with minerals for deep hydration.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Detox Seaweed Facial</div>
+          <span class="menu-item-duration">Mineral- and vitamin-rich seaweed that clears impurities and leaves skin soft, smooth, and hydrated.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+    </div>
+
+    <div class="menu-category" id="waxing">
+      <h3>Waxing Services</h3>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Brazilian Wax</div>
+          <span class="menu-item-duration">Full removal of pubic hair from the pelvic region, done cleanly and quickly by a professional.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Half Leg Waxing</div>
+          <span class="menu-item-duration">Waxing to just above the knees, including toes and feet if requested.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+      <div class="menu-item">
+        <div>
+          <div class="menu-item-name">Eyelashes Tinting</div>
+          <span class="menu-item-duration">Gives lashes definition so you can go without mascara for a few weeks at a time.</span>
+        </div>
+        <div class="menu-item-note">Book to see pricing</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="section--tight section--olive">
+  <div class="container center">
+    <h2>Not sure where to start?</h2>
+    <p class="lede">Call or send a message and we'll help you pick the right treatment for your skin, your schedule, and your budget.</p>
+    <div class="btn-row">
+      <a href="booking.html" class="btn btn-primary">Book Appointment</a>
+      <a href="tel:2407010731" class="btn btn-outline">Call (240) 701-0731</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span>Grisel Beauty Spa</span>
+        </div>
+        <p>A beauty spa dedicated to inspiring life in balance, serving Silver Spring and the greater MD, DC, and VA area.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="booking.html">Book an Appointment</a></li>
+          <li><a href="gift-cards.html">Gift Cards</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>1620 Elton Rd, Suite 205<br>Silver Spring, MD 20903</li>
+          <li><a href="tel:2407010731">(240) 701-0731</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Saturday: 10:00 am &ndash; 7:00 pm</li>
+          <li>Mon &ndash; Fri: By appointment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Grisel Beauty Spa. All rights reserved.</span>
+      <span>Site by <a href="https://ariaria.ai/case-studies/grisel-case-study.html" style="color:inherit;text-decoration:underline">Ariaria</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

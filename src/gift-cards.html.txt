@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gift Cards | Grisel Beauty Spa</title>
+<meta name="description" content="Give the gift of relaxation. Purchase a Grisel Beauty Spa gift card for facials, massage therapy, or waxing in Silver Spring, MD.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23a35c42'/%3E%3Ctext x='50' y='67' font-size='55' text-anchor='middle' fill='%23f7f1e7' font-family='Georgia,serif'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span>Grisel Beauty Spa</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="gift-cards.html">Gift Cards</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-backdrop" aria-hidden="true"></div>
+
+<section class="hero-banner hero-banner--page" style="background-image: linear-gradient(180deg, rgba(33,29,25,0.42), rgba(33,29,25,0.6)), url('https://images.unsplash.com/photo-1672015521020-ab4f86d5cc00?auto=format&fit=crop&w=1800&q=80');">
+  <div class="container">
+    <span class="eyebrow">Gift Cards</span>
+    <h1>Give the gift of a moment of <em>wellness</em></h1>
+    <p class="lede">A Grisel Beauty Spa gift card lets someone you care about choose their own escape, a facial, a massage, or a full afternoon of treatments.</p>
+  </div>
+  <span class="photo-credit">Photo: Iliya Jokic / Unsplash (placeholder, swap for client photography)</span>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid grid-3">
+      <div class="plain-card">
+        <div class="icon-ring">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg>
+        </div>
+        <h3>Birthdays</h3>
+        <p>Skip the candles and give a day of rest instead. Pairs well with a hot stone massage or luxury facial.</p>
+      </div>
+      <div class="plain-card">
+        <div class="icon-ring">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2v4"/><path d="M5 10h14l-1.5 10h-11z"/><path d="M9 10a3 3 0 0 1 6 0"/></svg>
+        </div>
+        <h3>Holidays</h3>
+        <p>An easy, meaningful gift for family, friends, or coworkers who could use a break from the season.</p>
+      </div>
+      <div class="plain-card">
+        <div class="icon-ring">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"/></svg>
+        </div>
+        <h3>Just Because</h3>
+        <p>A thank-you gift for a new mom, a retiring colleague, or anyone due for a little care.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <span class="eyebrow center-line" style="color:var(--gold);">How It Works</span>
+    <h2>Gift cards are available by <em>phone or in person</em></h2>
+    <p class="lede">Online gift card purchases are coming soon. For now, call or email us and we'll set up any amount, mail or email the card, and even suggest a treatment to match the occasion.</p>
+    <div class="btn-row" style="justify-content:center;">
+      <a href="tel:2407010731" class="btn btn-outline">Call (240) 701-0731</a>
+      <a href="contact.html" class="btn btn-outline">Email Us</a>
+    </div>
+  </div>
+</section>
+
+<section class="section--tight section--olive">
+  <div class="container center">
+    <h2>Ready to book your own visit?</h2>
+    <p class="lede">While you're here, treat yourself too.</p>
+    <div class="btn-row">
+      <a href="booking.html" class="btn btn-primary">Book Appointment</a>
+      <a href="services.html" class="btn btn-outline">View Services</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span>Grisel Beauty Spa</span>
+        </div>
+        <p>A beauty spa dedicated to inspiring life in balance, serving Silver Spring and the greater MD, DC, and VA area.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="booking.html">Book an Appointment</a></li>
+          <li><a href="gift-cards.html">Gift Cards</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>1620 Elton Rd, Suite 205<br>Silver Spring, MD 20903</li>
+          <li><a href="tel:2407010731">(240) 701-0731</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Saturday: 10:00 am &ndash; 7:00 pm</li>
+          <li>Mon &ndash; Fri: By appointment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Grisel Beauty Spa. All rights reserved.</span>
+      <span>Site by <a href="https://ariaria.ai/case-studies/grisel-case-study.html" style="color:inherit;text-decoration:underline">Ariaria</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>

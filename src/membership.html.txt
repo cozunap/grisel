@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="robots" content="noindex, nofollow" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Membership | Grisel Beauty Spa</title>
+<meta name="description" content="Join the Grisel Beauty Spa membership for monthly service credits and member pricing on facials, massage therapy, and waxing in Silver Spring, MD.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='48' fill='%23a35c42'/%3E%3Ctext x='50' y='67' font-size='55' text-anchor='middle' fill='%23f7f1e7' font-family='Georgia,serif'%3EG%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="brand">
+      <span>Grisel Beauty Spa</span>
+    </a>
+    <nav class="nav">
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="membership.html">Membership</a></li>
+        <li><a href="gift-cards.html">Gift Cards</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+    <button class="nav-toggle" type="button" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  </div>
+</header>
+<div class="nav-backdrop" aria-hidden="true"></div>
+
+<section class="page-header">
+  <div class="container">
+    <span class="eyebrow center-line">Membership</span>
+    <h1>Make wellness a habit, not a splurge</h1>
+    <p class="lede">Monthly membership means built-in service credits, member pricing, and priority booking, so your next facial, massage, or wax is already taken care of.</p>
+  </div>
+</section>
+
+<section class="section" style="padding-top:20px;">
+  <div class="container">
+    <div class="grid grid-3">
+
+      <div class="plan-card">
+        <span class="eyebrow center-line">Essentials</span>
+        <div class="plan-price">$89<span>/month</span></div>
+        <ul class="plan-list">
+          <li>1 signature service credit each month (any facial, massage, or Brazilian wax)</li>
+          <li>10% off additional services booked same visit</li>
+          <li>Unused credits roll over up to 1 month</li>
+          <li>Member pricing on gift cards</li>
+        </ul>
+        <a href="booking.html" class="btn btn-outline" style="justify-content:center;">Start This Plan</a>
+      </div>
+
+      <div class="plan-card featured">
+        <span class="plan-tag">Most Popular</span>
+        <span class="eyebrow center-line">Renewal</span>
+        <div class="plan-price">$149<span>/month</span></div>
+        <ul class="plan-list">
+          <li>2 service credits each month, mix and match any treatment</li>
+          <li>15% off additional services and retail add-ons</li>
+          <li>Priority access to Saturday booking windows</li>
+          <li>Unused credits roll over up to 2 months</li>
+        </ul>
+        <a href="booking.html" class="btn btn-primary" style="justify-content:center;">Start This Plan</a>
+      </div>
+
+      <div class="plan-card">
+        <span class="eyebrow center-line">Unlimited Wellness</span>
+        <div class="plan-price">$259<span>/month</span></div>
+        <ul class="plan-list">
+          <li>Unlimited waxing services</li>
+          <li>2 facial or massage credits each month</li>
+          <li>20% off everything else in the treatment menu</li>
+          <li>One guest pass per quarter</li>
+        </ul>
+        <a href="booking.html" class="btn btn-outline" style="justify-content:center;">Start This Plan</a>
+      </div>
+
+    </div>
+
+    <p class="lede center" style="margin:44px auto 0; max-width:720px; font-size:0.92rem;">Membership pricing and perks above are default starter tiers for planning purposes. Confirm final pricing, credit rules, and cancellation terms with Grisel before this goes live.</p>
+  </div>
+</section>
+
+<section class="section--tight section--olive">
+  <div class="container center">
+    <h2>Ready to become a member?</h2>
+    <p class="lede">Call, message, or book your first session and we'll get you set up on the plan that fits.</p>
+    <div class="btn-row">
+      <a href="booking.html" class="btn btn-primary">Book Appointment</a>
+      <a href="contact.html" class="btn btn-outline">Ask a Question</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="brand">
+          <span>Grisel Beauty Spa</span>
+        </div>
+        <p>A beauty spa dedicated to inspiring life in balance, serving Silver Spring and the greater MD, DC, and VA area.</p>
+      </div>
+      <div>
+        <h4>Explore</h4>
+        <ul>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="booking.html">Book an Appointment</a></li>
+          <li><a href="gift-cards.html">Gift Cards</a></li>
+          <li><a href="about.html">About Us</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Visit</h4>
+        <ul>
+          <li>1620 Elton Rd, Suite 205<br>Silver Spring, MD 20903</li>
+          <li><a href="tel:2407010731">(240) 701-0731</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul>
+          <li>Saturday: 10:00 am &ndash; 7:00 pm</li>
+          <li>Mon &ndash; Fri: By appointment</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Grisel Beauty Spa. All rights reserved.</span>
+      <span>Site by <a href="https://ariaria.ai/case-studies/grisel-case-study.html" style="color:inherit;text-decoration:underline">Ariaria</a></span>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
