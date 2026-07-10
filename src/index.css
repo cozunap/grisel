@@ -859,7 +859,7 @@ body.nav-locked { overflow: hidden; }
 .menu-category { margin-bottom: 64px; }
 
 .menu-category h3 {
-  color: var(--clay);
+  color: var(--ink);
   border-bottom: 1px solid var(--line);
   padding-bottom: 16px;
   margin-bottom: 8px;

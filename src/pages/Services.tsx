@@ -78,7 +78,7 @@ export default function Services() {
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
-                    <span className="menu-item-price" style={{ fontWeight: '600', fontSize: '1.2rem', fontFamily: 'var(--font-display)', color: 'var(--clay)' }}>
+                    <span className="menu-item-price" style={{ fontWeight: '600', fontSize: '1.2rem', fontFamily: 'var(--font-display)', color: 'var(--ink)' }}>
                       {service.price}
                     </span>
                     <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit", marginTop: "4px" }}>
@@ -102,7 +102,7 @@ export default function Services() {
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
-                    <span className="menu-item-price" style={{ fontWeight: '600', fontSize: '1.2rem', fontFamily: 'var(--font-display)', color: 'var(--clay)' }}>
+                    <span className="menu-item-price" style={{ fontWeight: '600', fontSize: '1.2rem', fontFamily: 'var(--font-display)', color: 'var(--ink)' }}>
                       {service.price}
                     </span>
                     <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit", marginTop: "4px" }}>
