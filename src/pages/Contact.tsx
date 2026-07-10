@@ -1,146 +1,85 @@
+import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 import '../index.css';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    message: ''
-  });
-  const [status, setStatus] = useState('');
-  const navigate = useNavigate();
+  const [data, setData] = useState<any>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setStatus('Sending message...');
-
-    try {
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCA6T1C0Y0cYRG65KT5uaAJBFRXGzaarauSt9A7vLWL3olY6HYnq1AqLyD0ZWHyVLP/exec';
-      
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-        },
-        body: JSON.stringify({
-          type: 'contact',
-          ...formData
-        }),
-      });
-
-      setStatus('Message sent successfully! Redirecting to services...');
-      setTimeout(() => {
-        navigate('/services');
-      }, 2000);
-    } catch (error) {
-      console.error(error);
-      setStatus('Failed to send message. Please try calling us instead.');
-    }
-  };
+  useEffect(() => {
+    const fetchData = async () => {
+      const snap = await getDoc(doc(db, 'content', 'contact'));
+      if (snap.exists()) setData(snap.data());
+    };
+    fetchData();
+  }, []);
 
   return (
     <Layout>
-      <SEO 
-        title="Contact Us | Luxury Med Spa Rockville MD" 
-        description="Get in touch with Grisel Beauty Spa. We offer private spa suites, luxury couples spa packages, and high-end facial treatments in Maryland."
-        canonical="/contact"
-        keywords="luxury spa bethesda, premium wellness spa columbia md, boutique beauty spa annapolis md, luxury day spa maryland, exclusive wellness spa potomac, top-rated beauty spa near me"
-      />
-      
+      <SEO title="Contact Us" description="Get in touch with Grisel Beauty Spa. Call, email, or visit our location in Silver Spring, MD." />
 
       <section className="page-header">
         <div className="container">
-          <span className="eyebrow center-line">Get In Touch</span>
-          <h1>Contact Us</h1>
-          <p className="lede">Questions about a treatment, a gift card, or your appointment? Send a message or call us directly.</p>
+          <span className="eyebrow center-line">Contact</span>
+          <h1>{data?.heroTitle || "Contact Us"}</h1>
+          <p className="lede">{data?.heroSubtitle || "Questions about a treatment, a gift card, or your appointment? Send a message or call us directly."}</p>
         </div>
       </section>
 
-      <section className="section" style={{ paddingTop: "20px" }}>
+      <section className="section" style={{ paddingTop: 0 }}>
         <div className="container">
-          <div className="grid grid-2" style={{ alignItems: "flex-start" }}>
-
-            <div className="form-card">
-              <h3>Send a Message</h3>
-              
-              {status && (
-                <div style={{ padding: "16px", marginBottom: "24px", background: "var(--olive)", color: "var(--ink)", borderRadius: "var(--radius-md)", textAlign: "center", fontWeight: "bold" }}>
-                  {status}
-                </div>
-              )}
-
-              <form id="contact-form" onSubmit={handleSubmit}>
-                <div className="field">
-                  <label htmlFor="c-name">Full Name <span className="req">*</span></label>
-                  <input type="text" id="c-name" name="name" required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} style={{ fontFamily: "inherit" }} />
-                </div>
-                <div className="field">
-                  <label htmlFor="c-email">Email Address <span className="req">*</span></label>
-                  <input type="email" id="c-email" name="email" required value={formData.email} onChange={e => setFormData({...formData, email: e.target.value})} style={{ fontFamily: "inherit" }} />
-                </div>
-                <div className="field">
-                  <label htmlFor="c-phone">Phone Number</label>
-                  <input type="tel" id="c-phone" name="phone" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} style={{ fontFamily: "inherit" }} />
-                </div>
-                <div className="field">
-                  <label htmlFor="c-message">Message <span className="req">*</span></label>
-                  <textarea id="c-message" name="message" rows={5} required value={formData.message} onChange={e => setFormData({...formData, message: e.target.value})} style={{ fontFamily: "inherit" }}></textarea>
-                </div>
-
-                <button type="submit" className="btn btn-primary" style={{ padding: "16px", width: "100%", justifyContent: "center" }}>Send Message</button>
-              </form>
-            </div>
-
+          <div className="grid grid-2">
             <div>
-              <ul className="info-list" style={{ marginBottom: "30px" }}>
-                <li>
-                  <div className="info-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M12 21s-7-6.5-7-11.5A7 7 0 0 1 19 9.5C19 14.5 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.3"/></svg>
-                  </div>
-                  <div>
-                    <strong>Address</strong>
-                    <span>1620 Elton Rd, Suite 205<br />Silver Spring, MD 20903</span>
-                  </div>
-                </li>
-                <li>
-                  <div className="info-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><path d="M22 16.9v2a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h2a2 2 0 0 1 2 1.7c.1.9.3 1.8.6 2.7a2 2 0 0 1-.5 2.1L7 9.7a16 16 0 0 0 6 6l1.2-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.7.6a2 2 0 0 1 1.7 2z"/></svg>
-                  </div>
-                  <div>
-                    <strong>Phone</strong>
-                    <a href="tel:2407010731">(240) 701-0731</a>
-                  </div>
-                </li>
-                <li>
-                  <div className="info-icon">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-                  </div>
-                  <div>
-                    <strong>Hours</strong>
-                    <span>Saturday: 10:00 am &#8211; 7:00 pm<br />Mon &#8211; Fri: By appointment</span>
-                  </div>
-                </li>
-              </ul>
+              <div className="contact-info-block" style={{ marginBottom: "32px" }}>
+                <span className="eyebrow">Location</span>
+                <address style={{ fontStyle: "normal", fontSize: "1.1rem", lineHeight: 1.6, color: "var(--ink-soft)" }}>
+                  {data?.address ? data.address.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>) : (
+                    <>
+                      1620 Elton Rd, Suite 205<br />
+                      Silver Spring, MD 20903
+                    </>
+                  )}
+                </address>
+              </div>
 
-              <div className="map-frame">
-                <iframe
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  src="https://www.google.com/maps?q=1620+Elton+Rd+Suite+205+Silver+Spring+MD+20903&output=embed">
-                </iframe>
+              <div className="contact-info-block" style={{ marginBottom: "32px" }}>
+                <span className="eyebrow">Phone</span>
+                <p style={{ fontSize: "1.1rem", margin: 0 }}>
+                  <a href={data?.phoneLink || "tel:2407010731"} style={{ color: "var(--ink)" }}>{data?.phone || "(240) 701-0731"}</a>
+                </p>
+              </div>
+
+              <div className="contact-info-block">
+                <span className="eyebrow">Hours</span>
+                <p style={{ fontSize: "1.1rem", margin: 0, color: "var(--ink-soft)", lineHeight: 1.6 }}>
+                  {data?.hours ? data.hours.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>) : (
+                    <>
+                      Saturday: 10:00 am - 7:00 pm<br />
+                      Mon - Fri: By appointment
+                    </>
+                  )}
+                </p>
               </div>
             </div>
 
+            <div>
+              <div style={{ background: "#f1f3f0", borderRadius: "12px", overflow: "hidden", height: "100%", minHeight: "400px" }}>
+                <iframe
+                  src={data?.mapUrl || "https://www.google.com/maps?q=1620+Elton+Rd+Suite+205+Silver+Spring+MD+20903&output=embed"}
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      
     </Layout>
   );
 }

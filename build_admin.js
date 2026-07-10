@@ -1,4 +1,7 @@
-import { useEffect, useState } from 'react';
+const fs = require('fs');
+const path = require('path');
+
+const code = `import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth, db } from '../firebase';
@@ -44,8 +47,8 @@ export default function AdminDashboard() {
       const servicesSnap = await getDocs(collection(db, 'services'));
       const productsSnap = await getDocs(collection(db, 'products'));
       
-      if (enSnap.exists()) setHomeData((prev: any) => ({ ...prev, en: enSnap.data() }));
-      if (esSnap.exists()) setHomeData((prev: any) => ({ ...prev, es: esSnap.data() }));
+      if (enSnap.exists()) setHomeData(prev => ({ ...prev, en: enSnap.data() }));
+      if (esSnap.exists()) setHomeData(prev => ({ ...prev, es: esSnap.data() }));
       if (aboutSnap.exists()) setAboutData(aboutSnap.data());
       if (membershipSnap.exists()) setMembershipData(membershipSnap.data());
       if (giftCardsSnap.exists()) setGiftCardsData(giftCardsSnap.data());
@@ -54,7 +57,7 @@ export default function AdminDashboard() {
       setServicesData(servicesSnap.docs.map(doc => ({ id: doc.id, ...doc.data() })));
       
       let pData = productsSnap.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-      pData.sort((a: any, b: any) => (a.priority || 0) - (b.priority || 0));
+      pData.sort((a, b) => (a.priority || 0) - (b.priority || 0));
       setProductsData(pData);
     };
     if (user) fetchData();
@@ -129,7 +132,7 @@ export default function AdminDashboard() {
   const handleDeleteDoc = async (col: string, id: string, setLocalState: any) => {
     if (!window.confirm('Delete this item?')) return;
     await deleteDoc(doc(db, col, id));
-    setLocalState((prev: any[]) => prev.filter((s: any) => s.id !== id));
+    setLocalState((prev: any[]) => prev.filter(s => s.id !== id));
     showMsg('Item deleted.');
   };
 
@@ -223,7 +226,7 @@ export default function AdminDashboard() {
   };
 
   const renderInput = (label: string, stateSetter: any, data: any, field: string, isTextarea = false) => (
-    <div key={field}>
+    <div>
       <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">{label}</label>
       {isTextarea ? (
         <textarea className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors h-32" value={data[field] || ''} onChange={(e) => updateField(stateSetter, field, e.target.value)} />
@@ -254,7 +257,7 @@ export default function AdminDashboard() {
             {['home', 'services', 'catalogue', 'about', 'membership', 'giftcards', 'contact'].map(tab => (
               <button 
                 key={tab}
-                className={`text-left px-6 py-2.5 text-[15px] transition-colors border-l-4 ${activeTab === tab ? 'border-[#05a3a4] bg-white text-[#1a202c] font-medium shadow-sm' : 'border-transparent text-[#4a5568] hover:bg-[#edf2f7]'}`}
+                className={\`text-left px-6 py-2.5 text-[15px] transition-colors border-l-4 \${activeTab === tab ? 'border-[#05a3a4] bg-white text-[#1a202c] font-medium shadow-sm' : 'border-transparent text-[#4a5568] hover:bg-[#edf2f7]'}\`}
                 onClick={() => { setActiveTab(tab); setEditingService(null); setEditingProduct(null); }}
               >
                 {tab.charAt(0).toUpperCase() + tab.slice(1)}
@@ -263,10 +266,10 @@ export default function AdminDashboard() {
           </nav>
 
           <div className="mt-auto px-6 pt-6 border-t border-[#e2e8f0]">
-            <button onClick={seedDatabase} disabled={isSaving} className="w-full px-3 py-2 bg-[#edf2f7] text-[#4a5568] rounded border border-[#cbd5e0] text-xs font-bold hover:bg-[#e2e8f0] transition-colors">
-              SEED CMS CONTENT
+            <button onClick={seedDatabase} disabled={isSaving} className="w-full px-3 py-2 bg-[#edf2f7] text-[#4a5568] rounded border border-[#cbd5e0] text-xs font-bold hover:bg-[#e2e8f0]">
+              RUN SEED SCRIPT
             </button>
-            <p className="text-[10px] text-[#a0aec0] mt-2 leading-tight">Populate database with default content.</p>
+            <p className="text-[10px] text-[#a0aec0] mt-2 leading-tight">Use only once to populate DB with default content.</p>
           </div>
         </aside>
 
@@ -285,24 +288,22 @@ export default function AdminDashboard() {
                 <div className="bg-white rounded-lg shadow-sm border border-[#e2e8f0] overflow-hidden flex flex-col">
                   <div className="border-b border-[#e2e8f0] px-6 py-4 bg-[#f8fafc]"><h2 className="font-semibold text-[#4a5568]">English Content</h2></div>
                   <div className="p-6 flex flex-col gap-6">
-                    {renderInput('Hero Title', (fn: any) => setHomeData((prev: any) => ({...prev, en: fn(prev.en)})), homeData.en, 'heroTitle')}
-                    {renderInput('Hero Subtitle', (fn: any) => setHomeData((prev: any) => ({...prev, en: fn(prev.en)})), homeData.en, 'heroSubtitle', true)}
-                    {renderInput('Approach Title', (fn: any) => setHomeData((prev: any) => ({...prev, en: fn(prev.en)})), homeData.en, 'approachTitle')}
-                    {renderInput('Approach Body', (fn: any) => setHomeData((prev: any) => ({...prev, en: fn(prev.en)})), homeData.en, 'approachBody', true)}
-                    {renderInput('Ready Title', (fn: any) => setHomeData((prev: any) => ({...prev, en: fn(prev.en)})), homeData.en, 'readyTitle')}
-                    {renderInput('Ready Body', (fn: any) => setHomeData((prev: any) => ({...prev, en: fn(prev.en)})), homeData.en, 'readyBody', true)}
+                    {renderInput('Hero Title', (fn: any) => setHomeData(prev => ({...prev, en: fn(prev.en)})), homeData.en, 'heroTitle')}
+                    {renderInput('Hero Subtitle', (fn: any) => setHomeData(prev => ({...prev, en: fn(prev.en)})), homeData.en, 'heroSubtitle')}
+                    {renderInput('Approach Title', (fn: any) => setHomeData(prev => ({...prev, en: fn(prev.en)})), homeData.en, 'approachTitle')}
+                    {renderInput('Approach Body', (fn: any) => setHomeData(prev => ({...prev, en: fn(prev.en)})), homeData.en, 'approachBody', true)}
+                    {renderInput('Ready Title', (fn: any) => setHomeData(prev => ({...prev, en: fn(prev.en)})), homeData.en, 'readyTitle')}
                   </div>
                 </div>
                 {/* ES */}
                 <div className="bg-white rounded-lg shadow-sm border border-[#e2e8f0] overflow-hidden flex flex-col">
                   <div className="border-b border-[#e2e8f0] px-6 py-4 bg-[#f8fafc]"><h2 className="font-semibold text-[#4a5568]">Spanish Content</h2></div>
                   <div className="p-6 flex flex-col gap-6">
-                    {renderInput('Hero Title', (fn: any) => setHomeData((prev: any) => ({...prev, es: fn(prev.es)})), homeData.es, 'heroTitle')}
-                    {renderInput('Hero Subtitle', (fn: any) => setHomeData((prev: any) => ({...prev, es: fn(prev.es)})), homeData.es, 'heroSubtitle', true)}
-                    {renderInput('Approach Title', (fn: any) => setHomeData((prev: any) => ({...prev, es: fn(prev.es)})), homeData.es, 'approachTitle')}
-                    {renderInput('Approach Body', (fn: any) => setHomeData((prev: any) => ({...prev, es: fn(prev.es)})), homeData.es, 'approachBody', true)}
-                    {renderInput('Ready Title', (fn: any) => setHomeData((prev: any) => ({...prev, es: fn(prev.es)})), homeData.es, 'readyTitle')}
-                    {renderInput('Ready Body', (fn: any) => setHomeData((prev: any) => ({...prev, es: fn(prev.es)})), homeData.es, 'readyBody', true)}
+                    {renderInput('Hero Title', (fn: any) => setHomeData(prev => ({...prev, es: fn(prev.es)})), homeData.es, 'heroTitle')}
+                    {renderInput('Hero Subtitle', (fn: any) => setHomeData(prev => ({...prev, es: fn(prev.es)})), homeData.es, 'heroSubtitle')}
+                    {renderInput('Approach Title', (fn: any) => setHomeData(prev => ({...prev, es: fn(prev.es)})), homeData.es, 'approachTitle')}
+                    {renderInput('Approach Body', (fn: any) => setHomeData(prev => ({...prev, es: fn(prev.es)})), homeData.es, 'approachBody', true)}
+                    {renderInput('Ready Title', (fn: any) => setHomeData(prev => ({...prev, es: fn(prev.es)})), homeData.es, 'readyTitle')}
                   </div>
                 </div>
               </div>
@@ -499,7 +500,7 @@ export default function AdminDashboard() {
                 </div>
                 <div>
                   <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Premium Description (Full details)</label>
-                  <textarea required className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] h-48" value={typeof editingService.premiumDescription === 'string' ? editingService.premiumDescription : editingService.premiumDescription?.join('\n\n')} onChange={(e) => setEditingService({...editingService, premiumDescription: e.target.value})} />
+                  <textarea required className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] h-48" value={typeof editingService.premiumDescription === 'string' ? editingService.premiumDescription : editingService.premiumDescription?.join('\\n\\n')} onChange={(e) => setEditingService({...editingService, premiumDescription: e.target.value})} />
                 </div>
               </div>
             </form>
@@ -583,3 +584,6 @@ export default function AdminDashboard() {
     </div>
   );
 }
+\`;
+
+fs.writeFileSync(path.join(__dirname, 'src', 'pages', 'AdminDashboard.tsx'), code);
