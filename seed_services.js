@@ -1,15 +1,19 @@
-export interface ServiceData {
-  id: string;
-  category: 'massage' | 'facials' | 'waxing';
-  name: string;
-  shortDescription: string;
-  premiumDescription: string[];
-  priceRange: string;
-  duration: string;
-  image: string;
-}
+import { initializeApp } from "firebase/app";
+import { getFirestore, doc, setDoc } from "firebase/firestore";
 
-export const servicesData: ServiceData[] = [
+const firebaseConfig = {
+  apiKey: "AIzaSyB4_cQGCJhgWwp38eKatB0rHFqPIGrcMko",
+  authDomain: "griselspa.firebaseapp.com",
+  projectId: "griselspa",
+  storageBucket: "griselspa.firebasestorage.app",
+  messagingSenderId: "390820306890",
+  appId: "1:390820306890:web:65a7b5344e31f75b04f933"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const servicesData = [
   {
     id: 'aromatherapy-massage',
     category: 'massage',
@@ -128,3 +132,20 @@ export const servicesData: ServiceData[] = [
     image: 'https://images.unsplash.com/photo-1512496015851-a1fbaf6928ea?auto=format&fit=crop&w=1200&q=80'
   }
 ];
+
+async function seedDatabase() {
+  console.log('Seeding services collection...');
+  try {
+    for (const service of servicesData) {
+      await setDoc(doc(db, "services", service.id), service);
+      console.log(`Uploaded: ${service.name}`);
+    }
+    console.log('Successfully seeded services!');
+    process.exit(0);
+  } catch (error) {
+    console.error('Error seeding services:', error);
+    process.exit(1);
+  }
+}
+
+seedDatabase();

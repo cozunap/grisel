@@ -1,8 +1,10 @@
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate, useLocation } from 'react-router';
 import { FadeIn } from '../components/FadeIn';
+import { collection, getDocs, addDoc } from 'firebase/firestore';
+import { db } from '../firebase';
 
 export default function Booking() {
   const [formData, setFormData] = useState({
@@ -16,27 +18,34 @@ export default function Booking() {
   });
   
   const [status, setStatus] = useState('');
+  const [servicesList, setServicesList] = useState<string[]>([]);
+  const [loadingServices, setLoadingServices] = useState(true);
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(location.search);
     const service = params.get('service');
     if (service) {
       setFormData(prev => ({ ...prev, services: [service] }));
     }
-  }, []);
+  }, [location]);
 
-  const servicesList = [
-    "Aromatherapy",
-    "Thai Herbal Balls Massage",
-    "Hot Stone Massage",
-    "Detox Mud Facial",
-    "Hydrating Paraffin Facial",
-    "Detox Seaweed Facial",
-    "Brazilian Wax",
-    "Half Leg Waxing",
-    "Eyelashes Tinting"
-  ];
+  useEffect(() => {
+    const fetchServices = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'services'));
+        const names = querySnapshot.docs.map(doc => doc.data().name);
+        setServicesList(names);
+      } catch (err) {
+        console.error('Error fetching services for booking:', err);
+        setServicesList(['Aromatherapy', 'Thai Herbal Balls Massage', 'Hot Stone Massage', 'Detox Mud Facial', 'Hydrating Paraffin Facial', 'Detox Seaweed Facial', 'Brazilian Wax', 'Half Leg Waxing', 'Eyelashes Tinting']);
+      } finally {
+        setLoadingServices(false);
+      }
+    };
+    fetchServices();
+  }, []);
 
   const handleServiceChange = (service: string) => {
     setFormData(prev => {
@@ -53,22 +62,14 @@ export default function Booking() {
     setStatus('Sending...');
     
     try {
-      const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzCA6T1C0Y0cYRG65KT5uaAJBFRXGzaarauSt9A7vLWL3olY6HYnq1AqLyD0ZWHyVLP/exec';
-      
-      await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'text/plain;charset=utf-8',
-        },
-        body: JSON.stringify(formData),
+      await addDoc(collection(db, 'bookings'), {
+        ...formData,
+        createdAt: new Date()
       });
 
-      // Google Apps Script redirect returns an opaque response in no-cors mode
-      // If it didn't throw an error, we assume it successfully reached Google
-      setStatus('Booking request sent successfully! Redirecting to services...');
+      setStatus('Booking request sent successfully! Redirecting to home...');
       setTimeout(() => {
-        navigate('/services');
+        navigate('/');
       }, 2000);
     } catch (error) {
       console.error(error);
@@ -140,17 +141,21 @@ export default function Booking() {
               <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
                 <label style={{ fontWeight: 500 }}>Select Services</label>
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                  {servicesList.map(service => (
-                    <label key={service} style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
-                      <input 
-                        type="checkbox" 
-                        checked={formData.services.includes(service)}
-                        onChange={() => handleServiceChange(service)}
-                        style={{ width: "18px", height: "18px", accentColor: "var(--gold)" }}
-                      />
-                      {service}
-                    </label>
-                  ))}
+                  {loadingServices ? (
+                    <p>Loading services...</p>
+                  ) : (
+                    servicesList.map(service => (
+                      <label key={service} style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
+                        <input 
+                          type="checkbox" 
+                          checked={formData.services.includes(service)}
+                          onChange={() => handleServiceChange(service)}
+                          style={{ width: "18px", height: "18px", accentColor: "var(--gold)" }}
+                        />
+                        {service}
+                      </label>
+                    ))
+                  )}
                 </div>
               </div>
 

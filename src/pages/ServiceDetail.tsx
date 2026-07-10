@@ -1,5 +1,7 @@
-import { useParams, Navigate, Link } from 'react-router';
-import { servicesData } from '../data/services';
+import { useParams, Navigate, Link } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { doc, getDoc, collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { FadeIn } from '../components/FadeIn';
@@ -7,16 +9,49 @@ import '../index.css';
 
 export default function ServiceDetail() {
   const { id } = useParams<{ id: string }>();
-  const service = servicesData.find(s => s.id === id);
+  const [service, setService] = useState<any>(null);
+  const [relatedServices, setRelatedServices] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        if (!id) return;
+        const docSnap = await getDoc(doc(db, 'services', id));
+        if (docSnap.exists()) {
+          const serviceData = docSnap.data();
+          setService({ id: docSnap.id, ...serviceData });
+          
+          // Fetch related services
+          const snapshot = await getDocs(collection(db, 'services'));
+          const allServices = snapshot.docs.map(d => ({ id: d.id, ...d.data() }));
+          const related = allServices
+            .filter((s: any) => s.category === serviceData.category && s.id !== id)
+            .slice(0, 3);
+          setRelatedServices(related);
+        }
+      } catch (err) {
+        console.error('Error fetching service detail:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchData();
+  }, [id]);
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="container py-20 text-center">
+          <p>Loading details...</p>
+        </div>
+      </Layout>
+    );
+  }
 
   if (!service) {
     return <Navigate to="/services" replace />;
   }
-
-  // Determine related services (same category, excluding current)
-  const relatedServices = servicesData
-    .filter(s => s.category === service.category && s.id !== service.id)
-    .slice(0, 3);
 
   // Schema Markup for Service
   const schema = {

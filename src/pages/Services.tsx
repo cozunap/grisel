@@ -1,19 +1,44 @@
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { FadeIn } from '../components/FadeIn';
-import { Link } from 'react-router';
-import { servicesData } from '../data/services';
-import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../firebase';
 import '../index.css';
 
 export default function Services() {
+  const [servicesData, setServicesData] = useState<any[]>([]);
+  const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    // JS logic to initialize components can go here
+    const fetchServices = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'services'));
+        const services = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        setServicesData(services);
+      } catch (err) {
+        console.error('Error fetching services:', err);
+      } finally {
+        setLoading(false);
+      }
+    };
+    fetchServices();
   }, []);
 
   const massageServices = servicesData.filter(s => s.category === 'massage');
   const facialServices = servicesData.filter(s => s.category === 'facials');
   const waxingServices = servicesData.filter(s => s.category === 'waxing');
+
+  if (loading) {
+    return (
+      <Layout>
+        <div className="min-h-[60vh] flex items-center justify-center">
+          <p className="text-stone/50 uppercase tracking-widest">Loading services...</p>
+        </div>
+      </Layout>
+    );
+  }
 
   return (
     <Layout>
