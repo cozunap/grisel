@@ -21,33 +21,35 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-cream flex items-center justify-center p-6">
-      <div className="max-w-md w-full bg-white p-8 shadow-sm rounded-md">
-        <h1 className="text-2xl font-serif text-ink mb-6 text-center">Grisel Spa CMS</h1>
+    <div className="min-h-screen bg-[#f1f1f1] flex flex-col items-center justify-center p-6 font-sans">
+      <div className="mb-6 text-center">
+        <h1 className="text-3xl font-serif text-[#1d2327]">Grisel Spa</h1>
+      </div>
+      <div className="max-w-[320px] w-full bg-white p-6 shadow-sm border border-[#c3c4c7] rounded-sm">
         {error && <p className="text-red-500 text-sm mb-4 text-center">{error}</p>}
         <form onSubmit={handleLogin} className="flex flex-col gap-4">
           <div>
-            <label className="block text-sm font-medium text-ink mb-1">Email</label>
+            <label className="block text-sm text-[#1d2327] mb-1">Email Address</label>
             <input 
               type="email" 
-              className="w-full px-4 py-2 border border-stone/20 rounded-md focus:outline-none focus:border-terracotta"
+              className="w-full px-3 py-2 border border-[#8c8f94] rounded-[3px] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1] shadow-inner text-[#2c3338] bg-white appearance-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required 
             />
           </div>
-          <div>
-            <label className="block text-sm font-medium text-ink mb-1">Password</label>
+          <div className="mt-2">
+            <label className="block text-sm text-[#1d2327] mb-1">Password</label>
             <input 
               type="password" 
-              className="w-full px-4 py-2 border border-stone/20 rounded-md focus:outline-none focus:border-terracotta"
+              className="w-full px-3 py-2 border border-[#8c8f94] rounded-[3px] focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1] shadow-inner text-[#2c3338] bg-white appearance-none"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required 
             />
           </div>
-          <button type="submit" className="w-full py-3 mt-4 bg-terracotta text-white font-semibold uppercase tracking-wider rounded-md hover:bg-terracotta-dark transition-colors">
-            Sign In
+          <button type="submit" className="w-full py-2 mt-4 bg-[#2271b1] text-white font-medium rounded-[3px] hover:bg-[#135e96] transition-colors shadow-sm text-[13px]">
+            Log In
           </button>
         </form>
       </div>
