@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 export default function GrouponPopup() {
   const [isOpen, setIsOpen] = useState(false);
+  const { t } = useTranslation('layout');
 
   useEffect(() => {
     // Open after a small delay for better UX
@@ -89,7 +91,7 @@ export default function GrouponPopup() {
               fontWeight: 'normal',
               letterSpacing: '0.5px'
             }}>
-              Special Groupon Offers!
+              {t('grouponTitle')}
             </h2>
             
             <p style={{ 
@@ -98,7 +100,7 @@ export default function GrouponPopup() {
               lineHeight: '1.6',
               fontSize: '18px'
             }}>
-              Check out our latest deals on Groupon for incredible savings on your next spa day.
+              {t('grouponBody')}
             </p>
 
             <a 
@@ -118,7 +120,7 @@ export default function GrouponPopup() {
               }}
               onClick={() => setIsOpen(false)}
             >
-              View Groupon Deals
+              {t('grouponBtn')}
             </a>
           </motion.div>
         </motion.div>

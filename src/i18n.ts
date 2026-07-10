@@ -7,6 +7,11 @@ import enHome from './content/pages/home.en.json';
 import esHome from './content/pages/home.es.json';
 import frHome from './content/pages/home.fr.json';
 
+// Layout
+import enLayout from './content/pages/layout.en.json';
+import esLayout from './content/pages/layout.es.json';
+import frLayout from './content/pages/layout.fr.json';
+
 // Services
 import enServices from './content/pages/services.en.json';
 import esServices from './content/pages/services.es.json';
@@ -49,6 +54,7 @@ i18n
     resources: {
       en: {
         home: enHome,
+        layout: enLayout,
         services: enServices,
         about: enAbout,
         membership: enMembership,
@@ -59,6 +65,7 @@ i18n
       },
       es: {
         home: esHome,
+        layout: esLayout,
         services: esServices,
         about: esAbout,
         membership: esMembership,
@@ -69,6 +76,7 @@ i18n
       },
       fr: {
         home: frHome,
+        layout: frLayout,
         services: frServices,
         about: frAbout,
         membership: frMembership,
@@ -78,7 +86,7 @@ i18n
         booking: frBooking,
       }
     },
-    ns: ['home', 'services', 'about', 'membership', 'giftcards', 'contact', 'catalogue', 'booking'],
+    ns: ['home', 'layout', 'services', 'about', 'membership', 'giftcards', 'contact', 'catalogue', 'booking'],
     defaultNS: 'home',
     fallbackLng: 'en',
     interpolation: {

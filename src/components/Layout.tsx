@@ -13,7 +13,7 @@ interface LayoutProps {
 export default function Layout({ children }: LayoutProps) {
   const [isNavOpen, setIsNavOpen] = useState(false);
   const location = useLocation();
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation('layout');
 
   // Close nav when route changes
   useEffect(() => {
@@ -55,13 +55,13 @@ export default function Layout({ children }: LayoutProps) {
           </Link>
           <nav className="nav">
             <ul className="nav-links">
-              <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Link></li>
-              <li><Link to="/services" className={location.pathname === '/services' ? 'active' : ''}>Services</Link></li>
-              <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>About</Link></li>
-              <li><Link to="/catalogue" className={location.pathname === '/catalogue' ? 'active' : ''}>Catalogue</Link></li>
-              <li><Link to="/membership" className={location.pathname === '/membership' ? 'active' : ''}>Membership</Link></li>
-              <li><Link to="/gift-cards" className={location.pathname === '/gift-cards' ? 'active' : ''}>Gift Cards</Link></li>
-              <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Link></li>
+              <li><Link to="/" className={location.pathname === '/' ? 'active' : ''}>{t('navHome')}</Link></li>
+              <li><Link to="/services" className={location.pathname === '/services' ? 'active' : ''}>{t('navServices')}</Link></li>
+              <li><Link to="/about" className={location.pathname === '/about' ? 'active' : ''}>{t('navAbout')}</Link></li>
+              <li><Link to="/catalogue" className={location.pathname === '/catalogue' ? 'active' : ''}>{t('navCatalogue')}</Link></li>
+              <li><Link to="/membership" className={location.pathname === '/membership' ? 'active' : ''}>{t('navMembership')}</Link></li>
+              <li><Link to="/gift-cards" className={location.pathname === '/gift-cards' ? 'active' : ''}>{t('navGiftCards')}</Link></li>
+              <li><Link to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>{t('navContact')}</Link></li>
             </ul>
             <div className="language-switcher" style={{ display: 'flex', gap: '10px', alignItems: 'center', marginLeft: '1rem' }}>
               <button onClick={() => i18n.changeLanguage('en')} style={{ background: 'none', border: 'none', cursor: 'pointer', fontWeight: i18n.language.startsWith('en') ? 'bold' : 'normal', fontSize: '0.9rem' }}>EN</button>
@@ -100,31 +100,31 @@ export default function Layout({ children }: LayoutProps) {
               <div className="brand">
                 <img src="/assets/grisel-logo.svg" alt="Grisel Beauty Spa" style={{ height: "60px" }} />
               </div>
-              <p>A beauty spa dedicated to inspiring life in balance, serving Silver Spring and the greater MD, DC, and VA area.</p>
+              <p>{t('footerDesc')}</p>
             </div>
             <div>
-              <h4>Explore</h4>
+              <h4>{t('footerExplore')}</h4>
               <ul>
-                <li><Link to="/services">Services</Link></li>
-                <li><Link to="/membership">Membership</Link></li>
-                <li><Link to="/booking">Book an Appointment</Link></li>
-                <li><Link to="/gift-cards">Gift Cards</Link></li>
-                <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/catalogue">Catalogue</Link></li>
+                <li><Link to="/services">{t('navServices')}</Link></li>
+                <li><Link to="/membership">{t('navMembership')}</Link></li>
+                <li><Link to="/booking">{t('footerBook')}</Link></li>
+                <li><Link to="/gift-cards">{t('navGiftCards')}</Link></li>
+                <li><Link to="/about">{t('footerAbout')}</Link></li>
+                <li><Link to="/catalogue">{t('navCatalogue')}</Link></li>
               </ul>
             </div>
             <div>
-              <h4>Visit</h4>
+              <h4>{t('footerVisit')}</h4>
               <ul>
                 <li>1620 Elton Rd, Suite 205<br />Silver Spring, MD 20903</li>
                 <li><a href="tel:2407010731">(240) 701-0731</a></li>
               </ul>
             </div>
             <div>
-              <h4>Hours</h4>
+              <h4>{t('footerHours')}</h4>
               <ul>
-                <li>Saturday: 10:00 am &#8211; 7:00 pm</li>
-                <li>Mon &#8211; Fri: By appointment</li>
+                <li>{t('footerHoursSat')}</li>
+                <li>{t('footerHoursWeek')}</li>
               </ul>
             </div>
           </div>

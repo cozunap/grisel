@@ -1,11 +1,23 @@
 {
   "title": "Grisel Beauty Spa",
   "heroTitle": "Regálate un momento de bienestar",
-  "heroSubtitle": "Un spa tranquilo y de atención personalizada creado bajo una sola idea: el descanso no es un lujo, es mantenimiento. Faciales, masajes terapéuticos y depilación, brindados con cuidado y atención sin prisas.",
-  "approachTitle": "Tratamientos diseñados para ti, no un simple menú",
-  "approachBody": "Cada sesión comienza con una conversación sobre tu piel, tu estrés y lo que necesitas en esa hora. Grisel Beauty Spa ha dedicado años a ganarse una reputación en Maryland, DC y Virginia por productos de calidad, un espacio limpio y tranquilo, y tratamientos que nunca se apresuran.",
-  "readyTitle": "¿Lista para un reinicio?",
+  "heroSubtitle": "Un spa tranquilo y de atención personal construido en torno a una idea: el descanso no es un lujo, es mantenimiento. Tratamientos faciales, masajes y depilación con cuidado y sin prisas.",
+  "approachTitle": "Tratamientos diseñados para ti, no un menú",
+  "approachBody": "Cada sesión comienza con una conversación sobre tu piel, tu estrés y lo que necesitas de esta hora. Grisel Beauty Spa ha pasado años ganando reputación en Maryland, DC y Virginia por sus productos de calidad, un espacio limpio y tranquilo, y tratamientos que nunca se apresuran.",
+  "readyTitle": "¿Listo para un reinicio?",
   "readyBody": "Reserva tu sesión en línea o llámanos para encontrar el tratamiento perfecto.",
   "bookNow": "Reservar Ahora",
-  "exploreMenu": "Explorar Menú"
+  "exploreMenu": "Explorar Menú",
+  "ourApproach": "Nuestro Enfoque",
+  "massageTherapy": "Terapia de Masajes",
+  "massageSubtitle": "Piedras calientes, aromaterapia",
+  "facialServices": "Servicios Faciales",
+  "facialSubtitle": "Desintoxicar, hidratar, renovar",
+  "waxingServices": "Servicios de Depilación",
+  "waxingSubtitle": "Rápido, limpio, cómodo",
+  "giftOfRest": "El Regalo del Descanso",
+  "giftTitle": "Regala un día de <em>calma</em>",
+  "giftBody": "Una tarjeta de regalo de Grisel Beauty Spa es una invitación abierta a bajar el ritmo. Perfecta para cumpleaños, vacaciones o simplemente para dar las gracias.",
+  "learnGiftCards": "Más sobre Tarjetas de Regalo",
+  "callUs": "Llamar (240) 701-0731"
 }

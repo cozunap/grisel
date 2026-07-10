@@ -749,7 +749,10 @@ body.nav-locked { overflow: hidden; }
 .tile-label {
   position: relative;
   z-index: 2;
-  padding: 26px 22px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
   color: var(--white);
   width: 100%;
 }
