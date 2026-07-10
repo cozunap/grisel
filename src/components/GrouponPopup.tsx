@@ -7,9 +7,15 @@ export default function GrouponPopup() {
   const { t } = useTranslation('layout');
 
   useEffect(() => {
+    // Check if the user has already seen the popup in this session
+    if (sessionStorage.getItem('hasSeenGrouponPopup')) {
+      return;
+    }
+
     // Open after a small delay for better UX
     const openTimer = setTimeout(() => {
       setIsOpen(true);
+      sessionStorage.setItem('hasSeenGrouponPopup', 'true');
       
       // Auto close after 7 seconds of being open
       const closeTimer = setTimeout(() => {
