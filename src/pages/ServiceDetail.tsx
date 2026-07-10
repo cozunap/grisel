@@ -137,7 +137,7 @@ export default function ServiceDetail() {
           </FadeIn>
 
           <div style={{ color: 'var(--ink-soft)', fontSize: '1.1rem', lineHeight: '1.8' }}>
-            {service.premiumDescription.map((paragraph, index) => (
+            {(Array.isArray(service.premiumDescription) ? service.premiumDescription : service.premiumDescription?.split('\n') || []).filter((p: string) => p.trim() !== '').map((paragraph: string, index: number) => (
               <FadeIn key={index} delay={0.1 * (index + 1)}>
                 <p style={{ marginBottom: '24px' }}>{paragraph}</p>
               </FadeIn>

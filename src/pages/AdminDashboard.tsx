@@ -88,32 +88,121 @@ export default function AdminDashboard() {
   if (loading || !user) return <div className="p-10">Loading...</div>;
 
   return (
-              </div>
+    <div className="min-h-screen bg-[#f4f6f8] flex flex-col font-sans text-[#1a202c]">
+      {/* Top Navbar */}
+      <header className="h-[56px] bg-white border-b border-[#e2e8f0] flex items-center justify-between px-6 shrink-0 shadow-sm z-10 relative">
+        <div className="flex items-center gap-2 text-[#05a3a4] font-bold text-lg">
+          Content Manager
+        </div>
+        <div className="flex items-center gap-4">
+          <span className="text-sm text-[#718096]">{user?.email}</span>
+          <button 
+            onClick={() => auth.signOut()} 
+            className="text-sm text-[#718096] hover:text-[#1a202c] transition-colors"
+          >
+            Log Out
+          </button>
+        </div>
+      </header>
 
-              <div>
-                <label className="block font-semibold mb-1">Approach Title</label>
-                <input type="text" className="w-full px-3 py-1 border border-[#8c8f94] rounded-[3px] shadow-inner bg-white appearance-none focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]" value={homeData.es.approachTitle} onChange={(e) => updateField('es', 'approachTitle', e.target.value)} />
+      <div className="flex flex-1 overflow-hidden">
+        {/* Left Sidebar (Collections) */}
+        <aside className="w-[240px] bg-[#f8fafc] border-r border-[#e2e8f0] flex flex-col py-6 shrink-0 overflow-y-auto">
+          <h2 className="px-6 text-[11px] font-bold text-[#a0aec0] uppercase tracking-wider mb-4">Collections</h2>
+          <nav className="flex flex-col">
+            <button 
+              className={`text-left px-6 py-2.5 text-[15px] transition-colors border-l-4 ${activeTab === 'home' ? 'border-[#05a3a4] bg-white text-[#1a202c] font-medium shadow-sm' : 'border-transparent text-[#4a5568] hover:bg-[#edf2f7]'}`}
+              onClick={() => setActiveTab('home')}
+            >
+              Home Page
+            </button>
+            <button 
+              className={`text-left px-6 py-2.5 text-[15px] transition-colors border-l-4 ${activeTab === 'services' ? 'border-[#05a3a4] bg-white text-[#1a202c] font-medium shadow-sm' : 'border-transparent text-[#4a5568] hover:bg-[#edf2f7]'}`}
+              onClick={() => setActiveTab('services')}
+            >
+              Services
+            </button>
+          </nav>
+        </aside>
+
+        {/* Main Workspace */}
+        <main className="flex-1 overflow-y-auto p-8">
+          {activeTab === 'home' && (
+            <div className="max-w-5xl mx-auto">
+              <div className="flex items-center justify-between mb-8">
+                <h1 className="text-2xl font-semibold text-[#1a202c]">Edit Home Page</h1>
+                <button 
+                  onClick={handleSaveHome} 
+                  disabled={isSaving}
+                  className="px-5 py-2 bg-[#05a3a4] text-white rounded font-medium text-[15px] hover:bg-[#048889] transition-colors shadow-sm disabled:opacity-50"
+                >
+                  {isSaving ? 'Publishing...' : 'Publish'}
+                </button>
               </div>
               
-              <div>
-                <label className="block font-semibold mb-1">Approach Body</label>
-                <textarea className="w-full px-3 py-1 border border-[#8c8f94] rounded-[3px] shadow-inner bg-white appearance-none h-24 focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]" value={homeData.es.approachBody} onChange={(e) => updateField('es', 'approachBody', e.target.value)} />
-              </div>
-              
-              <div>
-                <label className="block font-semibold mb-1">Ready Title</label>
-                <input type="text" className="w-full px-3 py-1 border border-[#8c8f94] rounded-[3px] shadow-inner bg-white appearance-none focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]" value={homeData.es.readyTitle} onChange={(e) => updateField('es', 'readyTitle', e.target.value)} />
-              </div>
-              
-              <div>
-                <label className="block font-semibold mb-1">Ready Body</label>
-                <textarea className="w-full px-3 py-1 border border-[#8c8f94] rounded-[3px] shadow-inner bg-white appearance-none h-24 focus:outline-none focus:border-[#2271b1] focus:ring-1 focus:ring-[#2271b1]" value={homeData.es.readyBody} onChange={(e) => updateField('es', 'readyBody', e.target.value)} />
+              {message && <div className="mb-6 p-4 bg-[#e6fffa] border border-[#319795] text-[#285e61] rounded shadow-sm text-sm">{message}</div>}
+
+              <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+                {/* English Editor */}
+                <div className="bg-white rounded-lg shadow-sm border border-[#e2e8f0] overflow-hidden flex flex-col">
+                  <div className="border-b border-[#e2e8f0] px-6 py-4 bg-[#f8fafc]">
+                    <h2 className="font-semibold text-[#4a5568]">English Content</h2>
+                  </div>
+                  <div className="p-6 flex flex-col gap-6">
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Hero Title</label>
+                      <input type="text" className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors" value={homeData.en.heroTitle} onChange={(e) => updateField('en', 'heroTitle', e.target.value)} />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Hero Subtitle</label>
+                      <input type="text" className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors" value={homeData.en.heroSubtitle} onChange={(e) => updateField('en', 'heroSubtitle', e.target.value)} />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Approach Title</label>
+                      <input type="text" className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors" value={homeData.en.approachTitle} onChange={(e) => updateField('en', 'approachTitle', e.target.value)} />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Approach Body</label>
+                      <textarea className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors h-32" value={homeData.en.approachBody} onChange={(e) => updateField('en', 'approachBody', e.target.value)} />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Ready Title</label>
+                      <input type="text" className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors" value={homeData.en.readyTitle} onChange={(e) => updateField('en', 'readyTitle', e.target.value)} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Spanish Editor */}
+                <div className="bg-white rounded-lg shadow-sm border border-[#e2e8f0] overflow-hidden flex flex-col">
+                  <div className="border-b border-[#e2e8f0] px-6 py-4 bg-[#f8fafc]">
+                    <h2 className="font-semibold text-[#4a5568]">Contenido en Español</h2>
+                  </div>
+                  <div className="p-6 flex flex-col gap-6">
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Título Principal (Hero)</label>
+                      <input type="text" className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors" value={homeData.es.heroTitle} onChange={(e) => updateField('es', 'heroTitle', e.target.value)} />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Subtítulo (Hero)</label>
+                      <input type="text" className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors" value={homeData.es.heroSubtitle} onChange={(e) => updateField('es', 'heroSubtitle', e.target.value)} />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Título Enfoque</label>
+                      <input type="text" className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors" value={homeData.es.approachTitle} onChange={(e) => updateField('es', 'approachTitle', e.target.value)} />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Cuerpo Enfoque</label>
+                      <textarea className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors h-32" value={homeData.es.approachBody} onChange={(e) => updateField('es', 'approachBody', e.target.value)} />
+                    </div>
+                    <div>
+                      <label className="block text-[11px] font-bold text-[#718096] uppercase tracking-wider mb-2">Título de Cierre</label>
+                      <input type="text" className="w-full px-3 py-2 border border-[#cbd5e0] rounded bg-[#f8fafc] text-[#2d3748] focus:bg-white focus:outline-none focus:border-[#05a3a4] transition-colors" value={homeData.es.readyTitle} onChange={(e) => updateField('es', 'readyTitle', e.target.value)} />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-        </>
-        )}
+          )}
 
           {activeTab === 'services' && !editingService && (
             <div className="max-w-5xl mx-auto">
@@ -227,7 +316,6 @@ export default function AdminDashboard() {
               </div>
             </form>
           )}
-
         </main>
       </div>
     </div>
