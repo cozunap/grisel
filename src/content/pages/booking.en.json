@@ -1,0 +1,17 @@
+{
+  "heroTitle": "Book an Appointment",
+  "heroSubtitle": "Schedule your next relaxing experience with us.",
+  "firstName": "First Name",
+  "lastName": "Last Name",
+  "email": "Email Address",
+  "phone": "Phone Number",
+  "date": "Desired Date",
+  "time": "Desired Time",
+  "selectServices": "Select Services",
+  "loadingServices": "Loading services...",
+  "requestAppointment": "Request Appointment",
+  "disclaimer": "This is an appointment request. We will contact you to confirm the exact time and details.",
+  "sending": "Sending...",
+  "success": "Booking request sent successfully! Redirecting to home...",
+  "error": "Failed to connect to the booking server. Please try calling us instead."
+}

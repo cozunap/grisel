@@ -32,6 +32,11 @@ import enContact from './content/pages/contact.en.json';
 import esContact from './content/pages/contact.es.json';
 import frContact from './content/pages/contact.fr.json';
 
+// Booking
+import enBooking from './content/pages/booking.en.json';
+import esBooking from './content/pages/booking.es.json';
+import frBooking from './content/pages/booking.fr.json';
+
 // Catalogue
 import enCatalogue from './content/pages/catalogue.en.json';
 import esCatalogue from './content/pages/catalogue.es.json';
@@ -50,6 +55,7 @@ i18n
         giftcards: enGiftCards,
         contact: enContact,
         catalogue: enCatalogue,
+        booking: enBooking,
       },
       es: {
         home: esHome,
@@ -59,6 +65,7 @@ i18n
         giftcards: esGiftCards,
         contact: esContact,
         catalogue: esCatalogue,
+        booking: esBooking,
       },
       fr: {
         home: frHome,
@@ -68,9 +75,10 @@ i18n
         giftcards: frGiftCards,
         contact: frContact,
         catalogue: frCatalogue,
+        booking: frBooking,
       }
     },
-    ns: ['home', 'services', 'about', 'membership', 'giftcards', 'contact', 'catalogue'],
+    ns: ['home', 'services', 'about', 'membership', 'giftcards', 'contact', 'catalogue', 'booking'],
     defaultNS: 'home',
     fallbackLng: 'en',
     interpolation: {

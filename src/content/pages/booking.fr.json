@@ -1,0 +1,17 @@
+{
+  "heroTitle": "Prendre un Rendez-vous",
+  "heroSubtitle": "Programmez votre prochaine expérience relaxante avec nous.",
+  "firstName": "Prénom",
+  "lastName": "Nom de Famille",
+  "email": "Adresse E-mail",
+  "phone": "Numéro de Téléphone",
+  "date": "Date Souhaitée",
+  "time": "Heure Souhaitée",
+  "selectServices": "Sélectionner des Services",
+  "loadingServices": "Chargement des services...",
+  "requestAppointment": "Demander un Rendez-vous",
+  "disclaimer": "Ceci est une demande de rendez-vous. Nous vous contacterons pour confirmer l'heure exacte et les détails.",
+  "sending": "Envoi...",
+  "success": "Demande de réservation envoyée avec succès ! Redirection vers l'accueil...",
+  "error": "Échec de la connexion au serveur de réservation. Veuillez essayer de nous appeler."
+}

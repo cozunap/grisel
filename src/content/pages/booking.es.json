@@ -1,0 +1,17 @@
+{
+  "heroTitle": "Reservar una Cita",
+  "heroSubtitle": "Programa tu próxima experiencia relajante con nosotros.",
+  "firstName": "Nombre",
+  "lastName": "Apellido",
+  "email": "Correo Electrónico",
+  "phone": "Número de Teléfono",
+  "date": "Fecha Deseada",
+  "time": "Hora Deseada",
+  "selectServices": "Seleccionar Servicios",
+  "loadingServices": "Cargando servicios...",
+  "requestAppointment": "Solicitar Cita",
+  "disclaimer": "Esta es una solicitud de cita. Nos pondremos en contacto contigo para confirmar la hora exacta y los detalles.",
+  "sending": "Enviando...",
+  "success": "¡Solicitud de reserva enviada con éxito! Redirigiendo al inicio...",
+  "error": "Error al conectar con el servidor de reservas. Por favor, intenta llamarnos."
+}
