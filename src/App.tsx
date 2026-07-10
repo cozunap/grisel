@@ -10,6 +10,7 @@ import Catalogue from './pages/Catalogue';
 import Booking from './pages/Booking';
 import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
+import Analytics from './components/Analytics';
 import AdminLogin from './pages/AdminLogin';
 import AdminDashboard from './pages/AdminDashboard';
 
@@ -18,6 +19,7 @@ export default function App() {
   return (
     <>
       <ScrollToTop />
+      <Analytics />
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/services" element={<Services />} />

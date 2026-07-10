@@ -43,16 +43,32 @@ export default function Home() {
         keywords="luxury spa Maryland, premium beauty spa MD, elite wellness retreat Maryland, boutique day spa Maryland, five-star spa treatments MD, exclusive beauty lounge Maryland, high-end facial treatments Maryland, private spa suites MD"
         schema={JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "HealthAndBeautyBusiness",
+          "@type": ["HealthAndBeautyBusiness", "Corporation"],
           "name": "Grisel Beauty Spa",
           "image": "https://griselbeautyspa.com/og-image.jpg",
           "url": "https://griselbeautyspa.com",
           "telephone": "+12407010731",
           "address": {
             "@type": "PostalAddress",
+            "streetAddress": "11120 New Hampshire Ave Suite 406",
+            "addressLocality": "Silver Spring",
             "addressRegion": "MD",
+            "postalCode": "20904",
             "addressCountry": "US"
           },
+          "geo": {
+            "@type": "GeoCoordinates",
+            "latitude": "39.0416",
+            "longitude": "-76.9934"
+          },
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+              "opens": "09:00",
+              "closes": "19:00"
+            }
+          ],
           "priceRange": "$$$",
           "description": "Elite wellness retreat in Maryland offering luxury facials, medical aesthetics, and premium massage therapies."
         })}
