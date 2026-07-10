@@ -1,15 +1,34 @@
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 
-import { useEffect } from 'react';
-import '../index.css';
 import GrouponPopup from '../components/GrouponPopup';
 import { FadeIn } from '../components/FadeIn';
 import ReviewCarousel from '../components/ReviewCarousel';
 import { useTranslation } from 'react-i18next';
+import { useEffect, useState } from 'react';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from '../firebase';
+import '../index.css';
 
 export default function Home() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const [dbData, setDbData] = useState<any>(null);
+
+  useEffect(() => {
+    const fetchHomeData = async () => {
+      const lang = i18n.language.startsWith('es') ? 'es' : 'en';
+      const snap = await getDoc(doc(db, 'content', `home-${lang}`));
+      if (snap.exists()) {
+        setDbData(snap.data());
+      }
+    };
+    fetchHomeData();
+  }, [i18n.language]);
+
+  // Use Firestore data if available, fallback to i18n JSON translation if not
+  const getText = (key: string) => {
+    return dbData ? dbData[key] || t(key) : t(key);
+  };
 
   useEffect(() => {
     // JS logic to initialize components can go here
@@ -47,15 +66,15 @@ export default function Home() {
         }}
       ><div className="container">
     <FadeIn>
-      <h1 dangerouslySetInnerHTML={{ __html: t('heroTitle').replace('wellness', '<em>wellness</em>').replace('bienestar', '<em>bienestar</em>') }} />
+      <h1 dangerouslySetInnerHTML={{ __html: getText('heroTitle').replace('wellness', '<em>wellness</em>').replace('bienestar', '<em>bienestar</em>') }} />
     </FadeIn>
     <FadeIn delay={0.2}>
-      <p className="lede">{t('heroSubtitle')}</p>
+      <p className="lede">{getText('heroSubtitle')}</p>
     </FadeIn>
     <FadeIn delay={0.4}>
       <div className="btn-row">
-        <a href="/booking" className="btn btn-primary">{t('bookNow')}</a>
-        <a href="/services" className="btn btn-outline">{t('exploreMenu')}</a>
+        <a href="/booking" className="btn btn-primary">{getText('bookNow')}</a>
+        <a href="/services" className="btn btn-outline">{getText('exploreMenu')}</a>
       </div>
     </FadeIn>
   </div>
@@ -65,10 +84,10 @@ export default function Home() {
   <div className="container center" style={{ display: "block", maxWidth: "760px" }}>
     <FadeIn>
       <span className="eyebrow center-line">Our Approach</span>
-      <h2 dangerouslySetInnerHTML={{ __html: t('approachTitle').replace('you', '<em>you</em>').replace('ti', '<em>ti</em>') }} />
+      <h2 dangerouslySetInnerHTML={{ __html: getText('approachTitle').replace('you', '<em>you</em>').replace('ti', '<em>ti</em>') }} />
     </FadeIn>
     <FadeIn delay={0.2}>
-      <p className="lede" style={{ margin: "0 auto" }}>{t('approachBody')}</p>
+      <p className="lede" style={{ margin: "0 auto" }}>{getText('approachBody')}</p>
     </FadeIn>
   </div>
 </section>
@@ -123,12 +142,12 @@ export default function Home() {
 <section className="section--tight section--olive">
   <div className="container center">
     <FadeIn>
-      <h2>{t('readyTitle')}</h2>
-      <p className="lede">{t('readyBody')}</p>
+      <h2>{getText('readyTitle')}</h2>
+      <p className="lede">{getText('readyBody')}</p>
     </FadeIn>
     <FadeIn delay={0.2}>
       <div className="btn-row">
-        <a href="/booking" className="btn btn-primary">{t('bookNow')}</a>
+        <a href="/booking" className="btn btn-primary">{getText('bookNow')}</a>
         <a href="tel:2407010731" className="btn btn-outline">Call (240) 701-0731</a>
       </div>
     </FadeIn>

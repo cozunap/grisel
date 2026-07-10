@@ -10,6 +10,8 @@ import Catalogue from './pages/Catalogue';
 import Booking from './pages/Booking';
 import NotFound from './pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
+import AdminLogin from './pages/AdminLogin';
+import AdminDashboard from './pages/AdminDashboard';
 
 export default function App() {
 
@@ -26,6 +28,8 @@ export default function App() {
       <Route path="/catalogue" element={<Catalogue />} />
       <Route path="/booking" element={<Booking />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/admin" element={<AdminLogin />} />
+      <Route path="/admin/dashboard" element={<AdminDashboard />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
     </>
