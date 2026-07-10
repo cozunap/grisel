@@ -78,8 +78,8 @@ export default function Services() {
                     </Link>
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
-                  <Link to={`/services/${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    {t('viewDetails')}
+                  <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
+                    {t('bookNowItem')}
                   </Link>
                 </div>
               ))}
@@ -97,8 +97,8 @@ export default function Services() {
                     </Link>
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
-                  <Link to={`/services/${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    {t('viewDetails')}
+                  <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
+                    {t('bookNowItem')}
                   </Link>
                 </div>
               ))}
@@ -116,8 +116,8 @@ export default function Services() {
                     </Link>
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
-                  <Link to={`/services/${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    {t('viewDetails')}
+                  <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
+                    {t('bookNowItem')}
                   </Link>
                 </div>
               ))}
