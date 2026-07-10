@@ -2,38 +2,32 @@ import Layout from '../components/Layout';
 import SEO from '../components/SEO';
 import { FadeIn } from '../components/FadeIn';
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { collection, getDocs } from 'firebase/firestore';
-import { db } from '../firebase';
 import { servicesData as localServices } from '../data/services';
 import '../index.css';
 
 export default function Services() {
   const { t } = useTranslation('services');
-  const [servicesData, setServicesData] = useState<any[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [servicesData] = useState<any[]>(localServices);
+  const loading = false;
 
-  useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const querySnapshot = await getDocs(collection(db, 'services'));
-        if (!querySnapshot.empty) {
-          const services = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-          setServicesData(services);
-        } else {
-          // Fallback to local data if Firestore is empty
-          setServicesData(localServices);
-        }
-      } catch (err) {
-        console.error('Error fetching services:', err);
-        setServicesData(localServices); // Fallback on error
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchServices();
-  }, []);
+  // useEffect(() => {
+  //   const fetchServices = async () => {
+  //     try {
+  //       const querySnapshot = await getDocs(collection(db, 'services'));
+  //       if (!querySnapshot.empty) {
+  //         const services = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+  //         setServicesData(services);
+  //       }
+  //     } catch (err) {
+  //       console.error('Error fetching services:', err);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   };
+  //   fetchServices();
+  // }, []);
 
   const massageServices = servicesData.filter(s => s.category === 'massage');
   const facialServices = servicesData.filter(s => s.category === 'facials');
