@@ -1,30 +1,20 @@
-import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../firebase';
+import { useTranslation } from 'react-i18next';
 import '../index.css';
 
 export default function Contact() {
-  const [data, setData] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const snap = await getDoc(doc(db, 'content', 'contact'));
-      if (snap.exists()) setData(snap.data());
-    };
-    fetchData();
-  }, []);
+  const { t } = useTranslation('contact');
 
   return (
     <Layout>
-      <SEO title="Contact Us" description="Get in touch with Grisel Beauty Spa. Call, email, or visit our location in Silver Spring, MD." />
+      <SEO title={t('heroTitle')} description={t('heroSubtitle')} />
 
       <section className="page-header">
         <div className="container">
-          <span className="eyebrow center-line">Contact</span>
-          <h1>{data?.heroTitle || "Contact Us"}</h1>
-          <p className="lede">{data?.heroSubtitle || "Questions about a treatment, a gift card, or your appointment? Send a message or call us directly."}</p>
+          <span className="eyebrow center-line">{t('eyebrow')}</span>
+          <h1>{t('heroTitle')}</h1>
+          <p className="lede">{t('heroSubtitle')}</p>
         </div>
       </section>
 
@@ -33,33 +23,25 @@ export default function Contact() {
           <div className="grid grid-2">
             <div>
               <div className="contact-info-block" style={{ marginBottom: "32px" }}>
-                <span className="eyebrow">Location</span>
+                <span className="eyebrow">{t('location')}</span>
                 <address style={{ fontStyle: "normal", fontSize: "1.1rem", lineHeight: 1.6, color: "var(--ink-soft)" }}>
-                  {data?.address ? data.address.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>) : (
-                    <>
-                      1620 Elton Rd, Suite 205<br />
-                      Silver Spring, MD 20903
-                    </>
-                  )}
+                  {t('address1')}<br />
+                  {t('address2')}
                 </address>
               </div>
 
               <div className="contact-info-block" style={{ marginBottom: "32px" }}>
-                <span className="eyebrow">Phone</span>
+                <span className="eyebrow">{t('phoneLabel')}</span>
                 <p style={{ fontSize: "1.1rem", margin: 0 }}>
-                  <a href={data?.phoneLink || "tel:2407010731"} style={{ color: "var(--ink)" }}>{data?.phone || "(240) 701-0731"}</a>
+                  <a href="tel:2407010731" style={{ color: "var(--ink)" }}>(240) 701-0731</a>
                 </p>
               </div>
 
               <div className="contact-info-block">
-                <span className="eyebrow">Hours</span>
+                <span className="eyebrow">{t('hoursLabel')}</span>
                 <p style={{ fontSize: "1.1rem", margin: 0, color: "var(--ink-soft)", lineHeight: 1.6 }}>
-                  {data?.hours ? data.hours.split('\\n').map((line: string, i: number) => <span key={i}>{line}<br/></span>) : (
-                    <>
-                      Saturday: 10:00 am - 7:00 pm<br />
-                      Mon - Fri: By appointment
-                    </>
-                  )}
+                  {t('hours1')}<br />
+                  {t('hours2')}
                 </p>
               </div>
             </div>
@@ -67,7 +49,7 @@ export default function Contact() {
             <div>
               <div style={{ background: "#f1f3f0", borderRadius: "12px", overflow: "hidden", height: "100%", minHeight: "400px" }}>
                 <iframe
-                  src={data?.mapUrl || "https://www.google.com/maps?q=1620+Elton+Rd+Suite+205+Silver+Spring+MD+20903&output=embed"}
+                  src="https://www.google.com/maps?q=1620+Elton+Rd+Suite+205+Silver+Spring+MD+20903&output=embed"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

@@ -1,30 +1,20 @@
-import { useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import SEO from '../components/SEO';
-import { doc, getDoc } from 'firebase/firestore';
-import { db } from '../firebase';
+import { useTranslation } from 'react-i18next';
 import '../index.css';
 
 export default function Membership() {
-  const [data, setData] = useState<any>(null);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const snap = await getDoc(doc(db, 'content', 'membership'));
-      if (snap.exists()) setData(snap.data());
-    };
-    fetchData();
-  }, []);
+  const { t } = useTranslation('membership');
 
   return (
     <Layout>
-      <SEO title="Membership" description="Experience relaxation and rejuvenation at Grisel Beauty Spa. Serving Silver Spring, MD and the greater DC/VA area." />
+      <SEO title={t('eyebrow')} description={t('heroSubtitle')} />
 
       <section className="page-header">
         <div className="container">
-          <span className="eyebrow center-line">Membership</span>
-          <h1>{data?.heroTitle || "Make wellness a habit, not a splurge"}</h1>
-          <p className="lede">{data?.heroSubtitle || "Monthly membership means built-in service credits, member pricing, and priority booking, so your next facial, massage, or wax is already taken care of."}</p>
+          <span className="eyebrow center-line">{t('eyebrow')}</span>
+          <h1>{t('heroTitle')}</h1>
+          <p className="lede">{t('heroSubtitle')}</p>
         </div>
       </section>
 
@@ -33,67 +23,55 @@ export default function Membership() {
           <div className="grid grid-3">
 
             <div className="plan-card">
-              <span className="eyebrow center-line">Essentials</span>
-              <div className="plan-price">{data?.plan1Price || "$89"}<span>/month</span></div>
+              <span className="eyebrow center-line">{t('plan1Eyebrow')}</span>
+              <div className="plan-price">{t('plan1Price')}<span>/month</span></div>
               <ul className="plan-list">
-                {data?.plan1Perks ? data.plan1Perks.split('\\n').map((perk: string, i: number) => <li key={i}>{perk}</li>) : (
-                  <>
-                    <li>1 signature service credit each month (any facial, massage, or Brazilian wax)</li>
-                    <li>10% off additional services booked same visit</li>
-                    <li>Unused credits roll over up to 1 month</li>
-                    <li>Member pricing on gift cards</li>
-                  </>
-                )}
+                <li>{t('plan1Perk1')}</li>
+                <li>{t('plan1Perk2')}</li>
+                <li>{t('plan1Perk3')}</li>
+                <li>{t('plan1Perk4')}</li>
               </ul>
-              <a href="/booking" className="btn btn-outline" style={{ justifyContent: "center" }}>Start This Plan</a>
+              <a href="/booking" className="btn btn-outline" style={{ justifyContent: "center" }}>{t('startPlan')}</a>
             </div>
 
             <div className="plan-card featured">
-              <span className="plan-tag">Most Popular</span>
-              <span className="eyebrow center-line">Renewal</span>
-              <div className="plan-price">{data?.plan2Price || "$149"}<span>/month</span></div>
+              <span className="plan-tag">{t('plan2Tag')}</span>
+              <span className="eyebrow center-line">{t('plan2Eyebrow')}</span>
+              <div className="plan-price">{t('plan2Price')}<span>/month</span></div>
               <ul className="plan-list">
-                {data?.plan2Perks ? data.plan2Perks.split('\\n').map((perk: string, i: number) => <li key={i}>{perk}</li>) : (
-                  <>
-                    <li>2 service credits each month, mix and match any treatment</li>
-                    <li>15% off additional services and retail add-ons</li>
-                    <li>Priority access to Saturday booking windows</li>
-                    <li>Unused credits roll over up to 2 months</li>
-                  </>
-                )}
+                <li>{t('plan2Perk1')}</li>
+                <li>{t('plan2Perk2')}</li>
+                <li>{t('plan2Perk3')}</li>
+                <li>{t('plan2Perk4')}</li>
               </ul>
-              <a href="/booking" className="btn btn-primary" style={{ justifyContent: "center" }}>Start This Plan</a>
+              <a href="/booking" className="btn btn-primary" style={{ justifyContent: "center" }}>{t('startPlan')}</a>
             </div>
 
             <div className="plan-card">
-              <span className="eyebrow center-line">Unlimited Wellness</span>
-              <div className="plan-price">{data?.plan3Price || "$259"}<span>/month</span></div>
+              <span className="eyebrow center-line">{t('plan3Eyebrow')}</span>
+              <div className="plan-price">{t('plan3Price')}<span>/month</span></div>
               <ul className="plan-list">
-                {data?.plan3Perks ? data.plan3Perks.split('\\n').map((perk: string, i: number) => <li key={i}>{perk}</li>) : (
-                  <>
-                    <li>Unlimited waxing services</li>
-                    <li>2 facial or massage credits each month</li>
-                    <li>20% off everything else in the treatment menu</li>
-                    <li>One guest pass per quarter</li>
-                  </>
-                )}
+                <li>{t('plan3Perk1')}</li>
+                <li>{t('plan3Perk2')}</li>
+                <li>{t('plan3Perk3')}</li>
+                <li>{t('plan3Perk4')}</li>
               </ul>
-              <a href="/booking" className="btn btn-outline" style={{ justifyContent: "center" }}>Start This Plan</a>
+              <a href="/booking" className="btn btn-outline" style={{ justifyContent: "center" }}>{t('startPlan')}</a>
             </div>
 
           </div>
 
-          <p className="lede center" style={{ margin: "44px auto 0", maxWidth: "720px", fontSize: "0.92rem" }}>{data?.footerNote || "Membership pricing and perks above are default starter tiers for planning purposes. Confirm final pricing, credit rules, and cancellation terms with Grisel before this goes live."}</p>
+          <p className="lede center" style={{ margin: "44px auto 0", maxWidth: "720px", fontSize: "0.92rem" }}>{t('footerNote')}</p>
         </div>
       </section>
 
       <section className="section--tight section--olive">
         <div className="container center">
-          <h2>{data?.ctaTitle || "Ready to become a member?"}</h2>
-          <p className="lede">{data?.ctaSubtitle || "Call, message, or book your first session and we'll get you set up on the plan that fits."}</p>
+          <h2>{t('ctaTitle')}</h2>
+          <p className="lede">{t('ctaSubtitle')}</p>
           <div className="btn-row">
-            <a href="/booking" className="btn btn-primary">Book Appointment</a>
-            <a href="/contact" className="btn btn-outline">Ask a Question</a>
+            <a href="/booking" className="btn btn-primary">{t('bookAppt')}</a>
+            <a href="/contact" className="btn btn-outline">{t('askQuestion')}</a>
           </div>
         </div>
       </section>

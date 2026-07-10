@@ -1,1 +1,12 @@
-{}
+{
+  "eyebrow": "Contact",
+  "heroTitle": "Contactez-nous",
+  "heroSubtitle": "Des questions sur un soin, une carte cadeau ou votre rendez-vous ? Envoyez-nous un message ou appelez-nous directement.",
+  "location": "Emplacement",
+  "address1": "1620 Elton Rd, Suite 205",
+  "address2": "Silver Spring, MD 20903",
+  "phoneLabel": "Téléphone",
+  "hoursLabel": "Horaires",
+  "hours1": "Samedi : 10h00 - 19h00",
+  "hours2": "Lun - Ven : Sur rendez-vous"
+}
