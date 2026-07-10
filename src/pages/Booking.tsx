@@ -25,21 +25,24 @@ export default function Booking() {
   
   const [status, setStatus] = useState('');
 
-  // Extract service ID from URL and pre-select it
+  // Extract service ID from URL, find its name, and pre-select it
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const serviceId = params.get('service');
     if (serviceId) {
-      setFormData(prev => ({ ...prev, services: [serviceId] }));
+      const matchedService = servicesData.find(s => s.id === serviceId);
+      if (matchedService) {
+        setFormData(prev => ({ ...prev, services: [matchedService.name] }));
+      }
     }
   }, [location]);
 
-  const handleServiceChange = (serviceId: string) => {
+  const handleServiceChange = (serviceName: string) => {
     setFormData(prev => {
-      if (prev.services.includes(serviceId)) {
-        return { ...prev, services: prev.services.filter(s => s !== serviceId) };
+      if (prev.services.includes(serviceName)) {
+        return { ...prev, services: prev.services.filter(s => s !== serviceName) };
       } else {
-        return { ...prev, services: [...prev.services, serviceId] };
+        return { ...prev, services: [...prev.services, serviceName] };
       }
     });
   };
@@ -132,8 +135,8 @@ export default function Booking() {
                     <label key={service.id} style={{ display: "flex", alignItems: "center", gap: "8px", cursor: "pointer" }}>
                       <input 
                         type="checkbox" 
-                        checked={formData.services.includes(service.id)}
-                        onChange={() => handleServiceChange(service.id)}
+                        checked={formData.services.includes(service.name)}
+                        onChange={() => handleServiceChange(service.name)}
                         style={{ width: "18px", height: "18px", accentColor: "var(--gold)" }}
                       />
                       {service.name}
