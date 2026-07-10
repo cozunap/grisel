@@ -86,7 +86,7 @@ export default function Home() {
 
       <section className="section--tight">
         <div className="container">
-          <div className="tile-grid tile-grid--3">
+          <div className="tile-grid" style={{ gridTemplateColumns: "repeat(2, 1fr)", maxWidth: "900px", margin: "0 auto" }}>
             <FadeIn delay={0.1}>
               <a className="tile" href="/services#massage">
                 <span className="tile-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1745327883508-b6cd32e5dde5?auto=format&fit=crop&w=900&q=80')" }}></span>
@@ -97,15 +97,6 @@ export default function Home() {
               </a>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <a className="tile" href="/services#facials">
-                <span className="tile-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1731514771613-991a02407132?auto=format&fit=crop&w=900&q=80')" }}></span>
-                <span className="tile-label">
-                  <h3>{t('facialServices')}</h3>
-                  <span>{t('facialSubtitle')}</span>
-                </span>
-              </a>
-            </FadeIn>
-            <FadeIn delay={0.3}>
               <a className="tile" href="/services#waxing">
                 <span className="tile-bg" style={{ backgroundImage: "url('https://images.unsplash.com/photo-1700760934166-4c766d708139?auto=format&fit=crop&w=900&q=80')" }}></span>
                 <span className="tile-label">

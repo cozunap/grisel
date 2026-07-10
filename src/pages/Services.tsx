@@ -30,7 +30,6 @@ export default function Services() {
   // }, []);
 
   const massageServices = servicesData.filter(s => s.category === 'massage');
-  const facialServices = servicesData.filter(s => s.category === 'facials');
   const waxingServices = servicesData.filter(s => s.category === 'waxing');
 
   if (loading) {
@@ -78,34 +77,20 @@ export default function Services() {
                     </Link>
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
-                  <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    {t('bookNowItem')}
-                  </Link>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
+                    <span className="menu-item-price" style={{ fontWeight: '600', fontSize: '1.2rem', fontFamily: 'var(--font-display)', color: 'var(--clay)' }}>
+                      {service.price}
+                    </span>
+                    <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit", marginTop: "4px" }}>
+                      {t('bookNowItem')}
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
           </FadeIn>
 
           <FadeIn direction="up" delay={0.1}>
-            <div className="menu-category" id="facials">
-              <h3>{t('facials')}</h3>
-              {facialServices.map(service => (
-                <div className="menu-item" key={service.id}>
-                  <div>
-                    <Link to={`/services/${service.id}`} className="menu-item-name" style={{ color: 'inherit', textDecoration: 'none' }}>
-                      {service.name}
-                    </Link>
-                    <span className="menu-item-duration">{service.shortDescription}</span>
-                  </div>
-                  <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    {t('bookNowItem')}
-                  </Link>
-                </div>
-              ))}
-            </div>
-          </FadeIn>
-
-          <FadeIn direction="up" delay={0.2}>
             <div className="menu-category" id="waxing">
               <h3>{t('waxing')}</h3>
               {waxingServices.map(service => (
@@ -116,9 +101,14 @@ export default function Services() {
                     </Link>
                     <span className="menu-item-duration">{service.shortDescription}</span>
                   </div>
-                  <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit" }}>
-                    {t('bookNowItem')}
-                  </Link>
+                  <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', justifyContent: 'center' }}>
+                    <span className="menu-item-price" style={{ fontWeight: '600', fontSize: '1.2rem', fontFamily: 'var(--font-display)', color: 'var(--clay)' }}>
+                      {service.price}
+                    </span>
+                    <Link to={`/booking?service=${service.id}`} className="menu-item-note" style={{ textDecoration: "underline", color: "inherit", marginTop: "4px" }}>
+                      {t('bookNowItem')}
+                    </Link>
+                  </div>
                 </div>
               ))}
             </div>
